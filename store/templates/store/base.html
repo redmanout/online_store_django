@@ -1,0 +1,62 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        {% block css %}
+            <link rel="stylesheet" href="{% static "store/css/header.css" %}">
+            <link rel="stylesheet" href="{% static "store/css/footer.css" %}">
+            <link rel="stylesheet" href="{% static "store/css/icons_fonts.css" %}">
+            <link rel="stylesheet" href="{% static "store/css/base_null_container.css" %}">
+        {% endblock %}
+
+        {% block page_css %}{% endblock %}
+
+        <title>{% block title %}Onstore{% endblock %}</title>
+    </head>
+{% endblock %}
+
+<body>
+
+<div class="wrapper">
+    <div class="main">
+        {% block header %}
+            {% include 'include/_header.html' %}
+        {% endblock %}
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="messages-success__container messages-success">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}
+
+        {% endblock %}
+
+        {% block footer %}
+            {% include 'include/_footer.html' %}
+        {% endblock %}
+    </div>
+</div>
+<div id="callback" aria-hidden="true" class="popup">
+    <div class="popup__wrapper">
+        <div class="popup__content">
+            <button data-close type="button" class="popup__close">Закрыть</button>
+            <div class="popup__text">
+                Тут будет форма
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static "store/js/app.js" %}"></script>
+
+</body>
+</html>

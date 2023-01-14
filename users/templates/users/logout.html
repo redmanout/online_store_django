@@ -1,0 +1,16 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block title %}Logout{% endblock %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "users/css/style.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="logout__container logout">
+        <h1>You have successfully logged out of your account</h1>
+        <a href="{% url 'login' %}">Log in to your account again</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block title %}Account{% endblock %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "users/css/style.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="profile-card__container">
+        <div class="card-header">
+            <div class="pic">
+                <img src="{{ user.avatar.url }}" alt="user_pic">
+            </div>
+            <div class="name">{{ user.first_name }} {{ user.last_name }}</div>
+            {% if user.email %}
+                <div class="email">{{ user.email }}</div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="update-form__container update-form">
+        <h1 class="form-title">
+            Update data
+        </h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ edit_profile_form.as_p }}
+            <div class="form-buttons">
+                <button class="button_reg button_form" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "users/css/style.css" %}">
+{% endblock %}
+login-form
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="login-form__container login-form">
+        <h1 class="form-title">
+            Authorization
+        </h1>
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-buttons">
+                <button class="button_log button_form" type="submit">Sign in</button>
+            </div>
+            <p>Forgot your password? <a href="{% url 'pass_reset' %}">Get a new one!</a></p>
+        </form>
+    </div>
+{% endblock %}

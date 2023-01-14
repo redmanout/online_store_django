@@ -1,0 +1,24 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block title %}Password recovery{% endblock %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "users/css/style.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="form-reset__container reset-form">
+        <h1 class="form-title">
+            Password recovery
+        </h1>
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-buttons">
+                <button class="button_rec button_form" type="submit">Recovery</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,566 @@
+<header class="header">
+    <div class="header__top top-header">
+        <div class="top-header__container">
+            <nav class="top-header__menu menu-top-header">
+                <ul data-da=".menu__body,991.98" class="menu-top-header__list">
+                    <li class="menu-top-header__item menu-top-header__item_catalog"><a
+                            class="menu-top-header__link menu-top-header__link_catalog _icon-arrow-down">Каталог
+                        товаров</a></li>
+                    <li class="menu-top-header__item"><a href="{% url 'main_page' %}"
+                                                         class="menu-top-header__link">Home</a>
+                    </li>
+                    <li class="menu-top-header__item"><a href="{% url 'about' %}" class="menu-top-header__link">About
+                        us</a></li>
+                    <li class="menu-top-header__item"><a href="{% url 'ship_pay' %}" class="menu-top-header__link">Shipping
+                        and payment</a>
+                    </li>
+                    <li class="menu-top-header__item"><a href="{% url 'contacts' %}" class="menu-top-header__link">Contacts</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="top-header__actions">
+                <button hidden href="" class="top-header__icon _icon-man"></button>
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'reg' %}" class="top-header__user user user_reg">Register</a>
+                    <a href="{% url 'login' %}" class="top-header__user user user_login">Sign In</a>
+                {% else %}
+                    <a href="{% url 'profile' %}" class="top-header__user user user_reg">Profile</a>
+                    <a href="{% url 'logout' %}" class="top-header__user user user_login">Log Out</a>
+                {% endif %}
+            </div>
+            <nav hidden class="menu">
+                <button type="button" class="icon-menu"><span></span></button>
+                <div class="menu__body"></div>
+            </nav>
+        </div>
+    </div>
+    <div class="header__body body-header">
+        <div class="body-header__container">
+            <a href="" class="body-header__logo">
+                <picture>
+                    <source srcset="/media/header/logo/logo.webp" type="image/webp">
+                    <img src="/media/header/logo/logo.png" alt="Logo"></picture>
+            </a>
+            <div data-da=".catalog-header__container, 479.98" class="body-header__search">
+                <form action="#" class="search-header">
+                    <button type="submit" class="search-header__button _icon-search"></button>
+                    <input autocomplete="off" type="text" name="form[]" data-error="Error" placeholder="Search"
+                           class="search-header__input">
+                </form>
+            </div>
+            <div class="body-header__actions actions-header">
+                <a href="" class="actions-header__location _icon-location"><span>Zaporozhye</span></a>
+                <div data-da=".top-header__container,991.98,first" class="actions-header__phones phones-header">
+                    <div data-spollers class="phones-header__items">
+                        <div class="phones-header__item">
+                            <a href="tel:+38(098)980-96-20" class="phones-header__phone"><span>+38(098)980-96-28</span></a>
+                            <button type="button" data-spoller class="phones-header__arrow _icon-arrow-down"></button>
+                            <ul class="phones-header__list">
+                                {% for foo in list_phone %}
+                                    <li><a href="tel:{{ foo }}" class="phones-header__phone">{{ foo }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" data-popup="#callback" class="phones-header__callback">Request a call
+                    </button>
+                </div>
+                <a href="" data-da=".top-header__container,991.98,2" class="actions-header__favorite _icon-heart"></a>
+                <div class="actions-header__cart cart-header">
+                    <a href="" hidden data-da=".top-header__container,991.98,2"
+                       class="cart-header__icon _icon-cart"><span>0</span></a>
+                    <div class="cart-header__body">
+                        <a href="#card" class="cart-header__cart">Shopping cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__catalog catalog-header">
+        <div class="catalog-header__container">
+            <nav class="catalog-header__menu menu-catalog">
+                <button type="button" class="menu-catalog__back _icon-arrow-left">Back</button>
+                <ul class="menu-catalog__list">
+                    <li class="menu-catalog__item">
+                        <button data-parent="grounds" class="menu-catalog__link">Bases</button>
+                    </li>
+                    <li class="menu-catalog__item">
+                        <button data-parent="rubbers" class="menu-catalog__link">Rubbers</button>
+                    </li>
+                    <li class="menu-catalog__item">
+                        <button data-parent="balls" class="menu-catalog__link">Balls</button>
+                    </li>
+                    <li class="menu-catalog__item">
+                        <button data-parent="bags and backpacks" class="menu-catalog__link">Backpacks and bags</button>
+                    </li>
+                    <li class="menu-catalog__item">
+                        <button data-parent="nets" class="menu-catalog__link">Tennis nets</button>
+                    </li>
+                    <li class="menu-catalog__item">
+                        <button data-parent="tables" class="menu-catalog__link">Tables</button>
+                    </li>
+                    <li class="menu-catalog__item">
+                        <button data-parent="rackets" class="menu-catalog__link">Made rackets</button>
+                    </li>
+                    <li class="menu-catalog__item">
+                        <button data-parent="accessories" class="menu-catalog__link">Accessories</button>
+                    </li>
+                </ul>
+                <div class="menu-catalog__sub-menu sub-menu-catalog">
+                    <button type="button" class="sub-menu-catalog__back _icon-arrow-left">Назад</button>
+                    <div class="sub-menu-catalog__container">
+                        <div hidden data-submenu="grounds" class="sub-menu-catalog__block">
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Тип</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Форма ручки</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Состав</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Размер лопасти</a>
+                            </div>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href=""
+                                                                      class="sub-menu-catalog__link">Butterfly</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DHS</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Donic</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Joola</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Stiga</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Tibhar</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Xiom</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yasaka</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yinhe</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DEF-</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DEF</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DEF+</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ALL-</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ALL</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ALL+</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">OFF-</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">OFF</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">OFF+</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">FL</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ST</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">AN</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">CS</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">JP</a></li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Дерево</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href=""
+                                                                      class="sub-menu-catalog__link">Композит</a></li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href=""
+                                                                      class="sub-menu-catalog__link">Стандарт</a></li>
+                                <li class="sub-menu-catalog__item"><a href=""
+                                                                      class="sub-menu-catalog__link">Оверсайз</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Компакт</a>
+                                </li>
+                            </ul>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                        </div>
+                        <div hidden data-submenu="rubbers" class="sub-menu-catalog__block">
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Тип накладки</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Стиль</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Тип поверхности</a>
+                            </div>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href=""
+                                                                      class="sub-menu-catalog__link">Butterfly</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DHS</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Donic</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Joola</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Stiga</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Tibhar</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Xiom</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yasaka</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yinhe</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Гладкая</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Липучка</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href=""
+                                                                      class="sub-menu-catalog__link">Антиспин</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Гибрид</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Шипы</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DEF</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ALL</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">OFF</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Гладкие</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Шипы и
+                                    антиспины</a></li>
+                            </ul>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                        </div>
+                        <div hidden data-submenu="balls" class="sub-menu-catalog__block">
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Класс</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Упаковка</a>
+                            </div>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href=""
+                                                                      class="sub-menu-catalog__link">Butterfly</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DHS</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Donic</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Tibhar</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yinhe</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">3 звезды
+                                    40+</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Тренировочные
+                                    40+</a></li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href=""
+                                                                      class="sub-menu-catalog__link">Поштучно</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Коробка
+                                    3шт</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">100 шт</a>
+                                </li>
+                            </ul>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                        </div>
+                        <div hidden data-submenu="bags and backpacks" class="sub-menu-catalog__block">
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Тип</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Цвет</a>
+                            </div>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Donic</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Joola</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yasaka</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Tibhar</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yinhe</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Рюкзак</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Сумка</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Черный</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Синий</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Серый</a>
+                                </li>
+                            </ul>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                        </div>
+                        <div hidden data-submenu="nets" class="sub-menu-catalog__block">
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Цвет</a>
+                            </div>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DHS</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yinhe</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Синий</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Черный</a>
+                                </li>
+                            </ul>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                        </div>
+                        <div hidden data-submenu="tables" class="sub-menu-catalog__block">
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Назначение</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Цвет</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Толщина</a>
+                            </div>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Donic</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Stiga</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Для
+                                    помещений</a></li>
+                                <li class="sub-menu-catalog__item"><a href=""
+                                                                      class="sub-menu-catalog__link">Всепогодные</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Зеленый</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Синий</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">25мм</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">30мм</a>
+                                </li>
+                            </ul>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                        </div>
+                        <div hidden data-submenu="rackets" class="sub-menu-catalog__block">
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Тип</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Форма ручки</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Средний вес</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Толщина накладок</a>
+                            </div>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DHS</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yinhe</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DEF</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DEF+</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ALL</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ALL+</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">OFF-</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">OFF</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">FL</a></li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">170г</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">180г</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">2.0</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">2.1</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">2.2</a>
+                                </li>
+                            </ul>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                        </div>
+                        <div hidden data-submenu="accessories" class="sub-menu-catalog__block">
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Тип</a>
+                            </div>
+                            <div class="sub-menu-catalog__category">
+                                <a href="#" class="sub-menu-catalog__link-category">Цвет</a>
+                            </div>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Andro</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yasaka</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Donic</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Tibhar</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yinhe</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Торцевые
+                                    ленты</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Обмотки на
+                                    ручку</a></li>
+                            </ul>
+                            <ul class="sub-menu-catalog__list">
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Черный</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Красный</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Зеленый</a>
+                                </li>
+                            </ul>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                            <div class="sub-menu-catalog__footer">
+                                <a href="" class="sub-menu-catalog__all">Смотреть все</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

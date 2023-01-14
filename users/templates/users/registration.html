@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "users/css/style.css" %}">
+{% endblock %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+    <div class="register-form__container register-form">
+        <h1 class="form-title">
+            Regisrtation
+        </h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-buttons">
+                <button class="button_reg button_form" type="submit">Register</button>
+                <div class="divider">or</div>
+                <a href="">
+                    <button class="button_google button_form">Google</button>
+                </a>
+            </div>
+            <div class="already_reg">
+                <p class="p_already">Already registered?<a href="{% url 'login' %}">Log in to your
+                    personal account</a></p>
+            </div>
+        </form>
+    </div>
+{% endblock %}
