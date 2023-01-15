@@ -26,10 +26,12 @@
 <body>
 
 <div class="wrapper">
+
+    {% block header %}
+        {% include 'include/_header.html' %}
+    {% endblock %}
+
     <div class="main">
-        {% block header %}
-            {% include 'include/_header.html' %}
-        {% endblock %}
 
         {% if messages %}
             {% for message in messages %}
@@ -41,11 +43,14 @@
 
         {% endblock %}
 
-        {% block footer %}
-            {% include 'include/_footer.html' %}
-        {% endblock %}
     </div>
+
+    {% block footer %}
+        {% include 'include/_footer.html' %}
+    {% endblock %}
+
 </div>
+
 <div id="callback" aria-hidden="true" class="popup">
     <div class="popup__wrapper">
         <div class="popup__content">
@@ -56,6 +61,7 @@
         </div>
     </div>
 </div>
+
 <script src="{% static "store/js/app.js" %}"></script>
 
 </body>

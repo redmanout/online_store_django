@@ -241,3 +241,7 @@ a.button_form {
     text-decoration: underline;
 }
 
+#id_avatar {
+    padding-top: 10px;
+}
+

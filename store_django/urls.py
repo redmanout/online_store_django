@@ -20,8 +20,10 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('__debug__/', include('debug_toolbar.urls')),
     path('', include('store.urls')),
     path('', include('users.urls')),
+
 ]
 
 if settings.DEBUG:

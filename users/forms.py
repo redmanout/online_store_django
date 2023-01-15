@@ -1,5 +1,7 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
 from django import forms
+
+
 from .models import CustomUser
 
 
@@ -36,7 +38,7 @@ class UserRegForm(UserCreationForm):
         )
 
 
-class EditProfileForm(UserChangeForm):
+class EditProfileForm(forms.ModelForm):
     email = forms.EmailField(
         required=True,
         widget=forms.TextInput(attrs={'class': 'input_reg_form', 'placeholder': 'Enter your email'}),
@@ -46,7 +48,6 @@ class EditProfileForm(UserChangeForm):
         model = CustomUser
         fields = (
             'email',
-            'avatar',
         )
 
 

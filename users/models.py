@@ -16,7 +16,7 @@ class CustomUser(AbstractUser):
     avatar = models.ImageField(
         upload_to=get_upload_path,
         verbose_name='User photo',
-        default='default.png',
+        default='user_avatar/default.png',
     )
 
     USERNAME_FIELD = 'email'
