@@ -4,8 +4,8 @@
             <nav class="top-header__menu menu-top-header">
                 <ul data-da=".menu__body,991.98" class="menu-top-header__list">
                     <li class="menu-top-header__item menu-top-header__item_catalog"><a
-                            class="menu-top-header__link menu-top-header__link_catalog _icon-arrow-down">Каталог
-                        товаров</a></li>
+                            class="menu-top-header__link menu-top-header__link_catalog _icon-arrow-down">Catalog</a>
+                    </li>
                     <li class="menu-top-header__item"><a href="{% url 'main_page' %}"
                                                          class="menu-top-header__link">Home</a>
                     </li>
@@ -81,35 +81,17 @@
             <nav class="catalog-header__menu menu-catalog">
                 <button type="button" class="menu-catalog__back _icon-arrow-left">Back</button>
                 <ul class="menu-catalog__list">
-                    <li class="menu-catalog__item">
-                        <button data-parent="grounds" class="menu-catalog__link">Bases</button>
-                    </li>
-                    <li class="menu-catalog__item">
-                        <button data-parent="rubbers" class="menu-catalog__link">Rubbers</button>
-                    </li>
-                    <li class="menu-catalog__item">
-                        <button data-parent="balls" class="menu-catalog__link">Balls</button>
-                    </li>
-                    <li class="menu-catalog__item">
-                        <button data-parent="bags and backpacks" class="menu-catalog__link">Backpacks and bags</button>
-                    </li>
-                    <li class="menu-catalog__item">
-                        <button data-parent="nets" class="menu-catalog__link">Tennis nets</button>
-                    </li>
-                    <li class="menu-catalog__item">
-                        <button data-parent="tables" class="menu-catalog__link">Tables</button>
-                    </li>
-                    <li class="menu-catalog__item">
-                        <button data-parent="rackets" class="menu-catalog__link">Made rackets</button>
-                    </li>
-                    <li class="menu-catalog__item">
-                        <button data-parent="accessories" class="menu-catalog__link">Accessories</button>
-                    </li>
+                    {% for category in categories_product %}
+                        <li class="menu-catalog__item">
+                            <button data-parent="{{ category.name }}"
+                                    class="menu-catalog__link">{{ category.name }}</button>
+                        </li>
+                    {% endfor %}
                 </ul>
                 <div class="menu-catalog__sub-menu sub-menu-catalog">
                     <button type="button" class="sub-menu-catalog__back _icon-arrow-left">Назад</button>
                     <div class="sub-menu-catalog__container">
-                        <div hidden data-submenu="grounds" class="sub-menu-catalog__block">
+                        <div hidden data-submenu="Blades" class="sub-menu-catalog__block">
                             <div class="sub-menu-catalog__category">
                                 <a href="#" class="sub-menu-catalog__link-category">Manufacturer</a>
                             </div>
@@ -202,7 +184,7 @@
                                 <a href="" class="sub-menu-catalog__all">See all</a>
                             </div>
                         </div>
-                        <div hidden data-submenu="rubbers" class="sub-menu-catalog__block">
+                        <div hidden data-submenu="Rubbers" class="sub-menu-catalog__block">
                             <div class="sub-menu-catalog__category">
                                 <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
                             </div>
@@ -274,7 +256,7 @@
                                 <a href="" class="sub-menu-catalog__all">Смотреть все</a>
                             </div>
                         </div>
-                        <div hidden data-submenu="balls" class="sub-menu-catalog__block">
+                        <div hidden data-submenu="Balls" class="sub-menu-catalog__block">
                             <div class="sub-menu-catalog__category">
                                 <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
                             </div>
@@ -320,7 +302,7 @@
                                 <a href="" class="sub-menu-catalog__all">Смотреть все</a>
                             </div>
                         </div>
-                        <div hidden data-submenu="bags and backpacks" class="sub-menu-catalog__block">
+                        <div hidden data-submenu="Backpacks and bags" class="sub-menu-catalog__block">
                             <div class="sub-menu-catalog__category">
                                 <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
                             </div>
@@ -366,7 +348,7 @@
                                 <a href="" class="sub-menu-catalog__all">Смотреть все</a>
                             </div>
                         </div>
-                        <div hidden data-submenu="nets" class="sub-menu-catalog__block">
+                        <div hidden data-submenu="Tennis nets" class="sub-menu-catalog__block">
                             <div class="sub-menu-catalog__category">
                                 <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
                             </div>
@@ -392,7 +374,7 @@
                                 <a href="" class="sub-menu-catalog__all">Смотреть все</a>
                             </div>
                         </div>
-                        <div hidden data-submenu="tables" class="sub-menu-catalog__block">
+                        <div hidden data-submenu="Tables" class="sub-menu-catalog__block">
                             <div class="sub-menu-catalog__category">
                                 <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
                             </div>
@@ -443,7 +425,7 @@
                                 <a href="" class="sub-menu-catalog__all">Смотреть все</a>
                             </div>
                         </div>
-                        <div hidden data-submenu="rackets" class="sub-menu-catalog__block">
+                        <div hidden data-submenu="Made rackets" class="sub-menu-catalog__block">
                             <div class="sub-menu-catalog__category">
                                 <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
                             </div>
@@ -512,7 +494,7 @@
                                 <a href="" class="sub-menu-catalog__all">Смотреть все</a>
                             </div>
                         </div>
-                        <div hidden data-submenu="accessories" class="sub-menu-catalog__block">
+                        <div hidden data-submenu="Accessories" class="sub-menu-catalog__block">
                             <div class="sub-menu-catalog__category">
                                 <a href="#" class="sub-menu-catalog__link-category">Производитель</a>
                             </div>

@@ -8,7 +8,7 @@ from .models import CategoryProduct
 class HomePage(ListView):
     model = CategoryProduct
     template_name = 'store/home.html'
-    context_object_name = 'list_categories'
+    context_object_name = 'categories_product'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         ctx = super().get_context_data(**kwargs)
@@ -17,7 +17,6 @@ class HomePage(ListView):
             '+38(098)980-96-22',
             '+38(098)980-96-23',
         ]
-        ctx['title'] = 'sadsad'
         return ctx
 
 

@@ -7,7 +7,7 @@ from .manager import CustomUserManager
 
 
 def get_upload_path(instance, filename):
-    return "user_avatar/user_{id}/{file}".format(id=instance.email, file=filename)
+    return "user_avatar/user_{0}/{1}".format(instance.email, filename)
 
 
 class CustomUser(AbstractUser):
