@@ -56,8 +56,8 @@
                             <a href="tel:+38(098)980-96-20" class="phones-header__phone"><span>+38(098)980-96-28</span></a>
                             <button type="button" data-spoller class="phones-header__arrow _icon-arrow-down"></button>
                             <ul class="phones-header__list">
-                                {% for foo in list_phone %}
-                                    <li><a href="tel:{{ foo }}" class="phones-header__phone">{{ foo }}</a></li>
+                                {% for tel in phone_numbers_contacts %}
+                                    <li><a href="tel:{{ tel }}" class="phones-header__phone">{{ tel }}</a></li>
                                 {% endfor %}
                             </ul>
                         </div>
