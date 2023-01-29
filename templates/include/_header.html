@@ -92,97 +92,51 @@
                     <button type="button" class="sub-menu-catalog__back _icon-arrow-left">Назад</button>
                     <div class="sub-menu-catalog__container">
                         <div hidden data-submenu="Blades" class="sub-menu-catalog__block">
-                            <div class="sub-menu-catalog__category">
-                                <a href="#" class="sub-menu-catalog__link-category">Brand</a>
-                            </div>
-                            <div class="sub-menu-catalog__category">
-                                <a href="#" class="sub-menu-catalog__link-category">Type</a>
-                            </div>
-                            <div class="sub-menu-catalog__category">
-                                <a href="#" class="sub-menu-catalog__link-category">Handle Type</a>
-                            </div>
-                            <div class="sub-menu-catalog__category">
-                                <a href="#" class="sub-menu-catalog__link-category">Composition</a>
-                            </div>
-                            <div class="sub-menu-catalog__category">
-                                <a href="#" class="sub-menu-catalog__link-category">Blade Size</a>
-                            </div>
+                            {% for attribute in view.get_attribute %}
+                                <div class="sub-menu-catalog__category">
+                                    <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
+                                </div>
+                            {% endfor %}
                             <ul class="sub-menu-catalog__list">
-                                <li class="sub-menu-catalog__item"><a href=""
-                                                                      class="sub-menu-catalog__link">Butterfly</a></li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DHS</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Donic</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Joola</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Stiga</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Tibhar</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Xiom</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yasaka</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Yinhe</a>
-                                </li>
+                                {% for brand in view.get_brand %}
+                                    <li class="sub-menu-catalog__item"><a href=""
+                                                                          class="sub-menu-catalog__link">{{ brand.title }}</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DEF-</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DEF</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">DEF+</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ALL-</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ALL</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ALL+</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">OFF-</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">OFF</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">OFF+</a>
-                                </li>
+                                {% for type in view.get_type %}
+                                    <li class="sub-menu-catalog__item"><a href=""
+                                                                          class="sub-menu-catalog__link">{{ type.title }}</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">FL</a></li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">ST</a></li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">AN</a></li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">CS</a></li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">JP</a></li>
+                                {% for handle_type in view.get_handle_type %}
+                                    <li class="sub-menu-catalog__item"><a href=""
+                                                                          class="sub-menu-catalog__link">{{ handle_type.title }}</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Wood</a>
-                                </li>
-                                <li class="sub-menu-catalog__item"><a href=""
-                                                                      class="sub-menu-catalog__link">Composite</a></li>
+                                {% for composition in view.get_composition %}
+                                    <li class="sub-menu-catalog__item"><a href=""
+                                                                          class="sub-menu-catalog__link">{{ composition.title }}</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                <li class="sub-menu-catalog__item"><a href=""
-                                                                      class="sub-menu-catalog__link">Standart</a></li>
-                                <li class="sub-menu-catalog__item"><a href=""
-                                                                      class="sub-menu-catalog__link">Oversize</a></li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Compact</a>
-                                </li>
+                                {% for size in view.get_size %}
+                                    <li class="sub-menu-catalog__item"><a href=""
+                                                                          class="sub-menu-catalog__link">{{ size.title }}</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
-                            <div class="sub-menu-catalog__footer">
-                                <a href="" class="sub-menu-catalog__all">See all</a>
-                            </div>
-                            <div class="sub-menu-catalog__footer">
-                                <a href="" class="sub-menu-catalog__all">See all</a>
-                            </div>
-                            <div class="sub-menu-catalog__footer">
-                                <a href="" class="sub-menu-catalog__all">See all</a>
-                            </div>
-                            <div class="sub-menu-catalog__footer">
-                                <a href="" class="sub-menu-catalog__all">See all</a>
-                            </div>
-                            <div class="sub-menu-catalog__footer">
-                                <a href="" class="sub-menu-catalog__all">See all</a>
-                            </div>
+                            {% for el in view.get_count_attribute %}
+                                <div class="sub-menu-catalog__footer">
+                                    <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
+                                </div>
+                            {% endfor %}
                         </div>
                         <div hidden data-submenu="Rubbers" class="sub-menu-catalog__block">
                             <div class="sub-menu-catalog__category">
@@ -270,12 +224,15 @@
                             <ul class="sub-menu-catalog__list">
                                 <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">3 Star
                                     40+</a></li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Training 40+</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Training
+                                    40+</a></li>
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 <li class="sub-menu-catalog__item"><a href=""
-                                                                      class="sub-menu-catalog__link">By the piece</a></li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Box 6pc</a></li>
+                                                                      class="sub-menu-catalog__link">By the piece</a>
+                                </li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Box 6pc</a>
+                                </li>
                                 <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">100pc</a>
                                 </li>
                             </ul>
@@ -312,7 +269,8 @@
                                 </li>
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Backpack</a>
+                                <li class="sub-menu-catalog__item"><a href=""
+                                                                      class="sub-menu-catalog__link">Backpack</a>
                                 </li>
                                 <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Bag</a>
                                 </li>
@@ -381,7 +339,8 @@
                                 </li>
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Indoor</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Indoor</a>
+                                </li>
                                 <li class="sub-menu-catalog__item"><a href=""
                                                                       class="sub-menu-catalog__link">Outdoor</a>
                                 </li>
@@ -503,8 +462,10 @@
                                 </li>
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Edge Tape</a></li>
-                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Wrap on the handle</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Edge
+                                    Tape</a></li>
+                                <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Wrap on the
+                                    handle</a></li>
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 <li class="sub-menu-catalog__item"><a href="" class="sub-menu-catalog__link">Black</a>

@@ -1,11 +1,34 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models import CategoryProduct
+from .models import *
 
 
 # Create your views here.
 
-class HomePage(ListView):
+class BladesAttributeProduct:
+    def get_attribute(self):
+        return BladesProductAttribute.objects.all()
+
+    def get_brand(self):
+        return BladesBrand.objects.all()
+
+    def get_type(self):
+        return BladesType.objects.all()
+
+    def get_handle_type(self):
+        return BladesHandleType.objects.all()
+
+    def get_composition(self):
+        return BladesComposition.objects.all()
+
+    def get_size(self):
+        return BladesSize.objects.all()
+
+    def get_count_attribute(self):
+        return BladesProductAttribute.objects.all()
+
+
+class CategoryList(BladesAttributeProduct, ListView):
     model = CategoryProduct
     template_name = 'store/home.html'
     context_object_name = 'categories_product'

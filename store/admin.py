@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CategoryProduct, Product, Images
+from .models import *
 
 
 class CategoryProductAdmin(admin.ModelAdmin):
@@ -15,8 +15,8 @@ class ProductImageInline(admin.TabularInline):
 
 class ImagesAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'product', 'name', 'image',)
-    list_display_links = ('id', 'name', 'product',)
+        'id', 'product', 'image',)
+    list_display_links = ('id', 'product',)
     search_fields = ('name', 'product',)
 
 
@@ -29,7 +29,24 @@ class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline]
 
 
+class BladesProductAttributeAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'category',)
+    list_display_links = ('id', 'name',)
+    search_fields = ('name',)
+
+
+class ValueBladesAttributeAdmin(admin.ModelAdmin):
+    list_display = ('id', 'product', 'brand', 'type', 'handle_type', 'composition', 'size',)
+
+
 # Register your models here.
 admin.site.register(CategoryProduct, CategoryProductAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Images, ImagesAdmin)
+admin.site.register(BladesProductAttribute, BladesProductAttributeAdmin)
+admin.site.register(ValueBladesAttribute, ValueBladesAttributeAdmin)
+admin.site.register(BladesBrand)
+admin.site.register(BladesType)
+admin.site.register(BladesHandleType)
+admin.site.register(BladesComposition)
+admin.site.register(BladesSize)

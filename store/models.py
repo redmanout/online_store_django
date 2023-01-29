@@ -96,6 +96,105 @@ class Product(models.Model):
         verbose_name_plural = 'Products'
 
 
+class BladesProductAttribute(models.Model):
+    category = models.ForeignKey(
+        CategoryProduct,
+        verbose_name='Category',
+        on_delete=models.CASCADE,
+    )
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=100,
+        db_index=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Blade Attribute'
+        verbose_name_plural = 'Blades Attributes'
+
+
+class BladesBrand(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class BladesType(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class BladesHandleType(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class BladesComposition(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class BladesSize(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class ValueBladesAttribute(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+    )
+    brand = models.ForeignKey(
+        BladesBrand,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    type = models.ForeignKey(
+        BladesType,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    handle_type = models.ForeignKey(
+        BladesHandleType,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    composition = models.ForeignKey(
+        BladesComposition,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    size = models.ForeignKey(
+        BladesSize,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+
+    def __str__(self):
+        return f'{self.product} {self.brand} {self.type} {self.handle_type} {self.composition} {self.size}'
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Value Blades Attribute'
+        verbose_name_plural = 'Values Blades Attributes'
+
+
 def get_upload_path(instance, filename):
     return "main-block/product/{0}/{1}/{2}".format(instance.category, instance.name, filename).lower()
 
