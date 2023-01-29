@@ -37,10 +37,6 @@ class CategoryProduct(models.Model):
         verbose_name_plural = 'Categories'
 
 
-def get_upload_path(instance, filename):
-    return "main-block/product/{0}/{1}/{2}".format(instance.category, instance.name, filename).lower()
-
-
 class Product(models.Model):
     category = models.ForeignKey(
         CategoryProduct,
@@ -90,10 +86,6 @@ class Product(models.Model):
         verbose_name='Updated at',
         auto_now=True,
     )
-    image = models.ImageField(
-        upload_to=get_upload_path,
-        blank=True,
-    )
 
     def __str__(self):
         return self.name
@@ -102,3 +94,36 @@ class Product(models.Model):
         ordering = ['created_at']
         verbose_name = 'Product'
         verbose_name_plural = 'Products'
+
+
+def get_upload_path(instance, filename):
+    return "main-block/product/{0}/{1}/{2}".format(instance.category, instance.name, filename).lower()
+
+
+class Images(models.Model):
+    category = models.ForeignKey(
+        CategoryProduct,
+        on_delete=models.CASCADE,
+        default=None,
+        related_name='images_products'
+    )
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+    )
+    name = models.CharField(
+        max_length=40,
+        blank=True,
+        verbose_name='Name',
+    )
+    image = models.ImageField(
+        blank=True,
+        upload_to=get_upload_path,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Image'
+        verbose_name_plural = 'Images'
