@@ -195,6 +195,567 @@ class ValueBladesAttribute(models.Model):
         verbose_name_plural = 'Values Blades Attributes'
 
 
+class RubbersProductAttribute(models.Model):
+    category = models.ForeignKey(
+        CategoryProduct,
+        verbose_name='Category',
+        on_delete=models.CASCADE,
+    )
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=100,
+        db_index=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Rubber Attribute'
+        verbose_name_plural = 'Rubbers Attributes'
+
+
+class RubbersBrand(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class RubbersType(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class RubbersSpeedType(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class ValueRubbersAttribute(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+    )
+    brand = models.ForeignKey(
+        RubbersBrand,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    type = models.ForeignKey(
+        RubbersType,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    speed_type = models.ForeignKey(
+        RubbersSpeedType,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+
+    def __str__(self):
+        return f'{self.product} {self.brand} {self.type} {self.speed_type}'
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Value Rubber Attribute'
+        verbose_name_plural = 'Values Rubbers Attributes'
+
+
+class BallsProductAttribute(models.Model):
+    category = models.ForeignKey(
+        CategoryProduct,
+        verbose_name='Category',
+        on_delete=models.CASCADE,
+    )
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=100,
+        db_index=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Ball Attribute'
+        verbose_name_plural = 'Balls Attributes'
+
+
+class BallsBrand(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class BallsRank(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class BallsPackage(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class ValueBallsAttribute(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+    )
+    brand = models.ForeignKey(
+        BallsBrand,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    rank = models.ForeignKey(
+        BallsRank,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    package = models.ForeignKey(
+        BallsPackage,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+
+    def __str__(self):
+        return f'{self.product} {self.brand} {self.rank} {self.package}'
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Value Ball Attribute'
+        verbose_name_plural = 'Values Balls Attributes'
+
+
+class BackpacksBagsProductAttribute(models.Model):
+    category = models.ForeignKey(
+        CategoryProduct,
+        verbose_name='Category',
+        on_delete=models.CASCADE,
+    )
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=100,
+        db_index=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Backpack and Bag Attribute'
+        verbose_name_plural = 'Backpacks and Bags Attributes'
+
+
+class BackpacksBagsBrand(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class BackpacksBagsType(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class BackpacksBagsColor(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class ValueBackpacksBagsAttribute(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+    )
+    brand = models.ForeignKey(
+        BackpacksBagsBrand,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    type = models.ForeignKey(
+        BackpacksBagsType,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    color = models.ForeignKey(
+        BackpacksBagsColor,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+
+    def __str__(self):
+        return f'{self.product} {self.brand} {self.type} {self.color}'
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Value Backpack and Bag Attribute'
+        verbose_name_plural = 'Values Backpacks and Bags Attributes'
+
+
+class NetsProductAttribute(models.Model):
+    category = models.ForeignKey(
+        CategoryProduct,
+        verbose_name='Category',
+        on_delete=models.CASCADE,
+    )
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=100,
+        db_index=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Net Attribute'
+        verbose_name_plural = 'Nets Attributes'
+
+
+class NetsBrand(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class NetsColor(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class ValueNetsAttribute(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+    )
+    brand = models.ForeignKey(
+        NetsBrand,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    color = models.ForeignKey(
+        NetsColor,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+
+    def __str__(self):
+        return f'{self.product} {self.brand} {self.color}'
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Value Net Attribute'
+        verbose_name_plural = 'Values Nets Attributes'
+
+
+class TablesProductAttribute(models.Model):
+    category = models.ForeignKey(
+        CategoryProduct,
+        verbose_name='Category',
+        on_delete=models.CASCADE,
+    )
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=100,
+        db_index=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Table Attribute'
+        verbose_name_plural = 'Tables Attributes'
+
+
+class TablesBrand(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class TablesSection(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class TablesColor(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class TablesThickness(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class ValueTablesAttribute(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+    )
+    brand = models.ForeignKey(
+        TablesBrand,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    section = models.ForeignKey(
+        TablesSection,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    color = models.ForeignKey(
+        TablesColor,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    thickness = models.ForeignKey(
+        TablesThickness,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+
+    def __str__(self):
+        return f'{self.product} {self.brand} {self.section} {self.color} {self.thickness}'
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Value Table Attribute'
+        verbose_name_plural = 'Values Tables Attributes'
+
+
+class RacketsProductAttribute(models.Model):
+    category = models.ForeignKey(
+        CategoryProduct,
+        verbose_name='Category',
+        on_delete=models.CASCADE,
+    )
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=100,
+        db_index=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Racket Attribute'
+        verbose_name_plural = 'Rackets Attributes'
+
+
+class RacketsBrand(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class RacketsType(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class RacketsHandleType(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class RacketsAverageWeight(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class RacketsRubbersThickness(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class ValueRacketsAttribute(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+    )
+    brand = models.ForeignKey(
+        RacketsBrand,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    type = models.ForeignKey(
+        RacketsType,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    handle_type = models.ForeignKey(
+        RacketsHandleType,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    average_weight = models.ForeignKey(
+        RacketsAverageWeight,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    rubbers_thickness = models.ForeignKey(
+        RacketsRubbersThickness,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+
+    def __str__(self):
+        return f'{self.product} {self.brand} {self.type} {self.handle_type} {self.average_weight} {self.rubbers_thickness}'
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Value Racket Attribute'
+        verbose_name_plural = 'Values Rackets Attributes'
+
+
+class AccessoriesProductAttribute(models.Model):
+    category = models.ForeignKey(
+        CategoryProduct,
+        verbose_name='Category',
+        on_delete=models.CASCADE,
+    )
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=100,
+        db_index=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Accessorie Attribute'
+        verbose_name_plural = 'Accessories Attributes'
+
+
+class AccessoriesBrand(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+
+class AccessoriesType(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class AccessoriesColor(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['id']
+
+
+class ValueAccessoriesAttribute(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+    )
+    brand = models.ForeignKey(
+        AccessoriesBrand,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    type = models.ForeignKey(
+        AccessoriesType,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+    color = models.ForeignKey(
+        AccessoriesColor,
+        on_delete=models.CASCADE,
+        default=None,
+    )
+
+    def __str__(self):
+        return f'{self.product} {self.brand} {self.type} {self.color}'
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Value Accessory Attribute'
+        verbose_name_plural = 'Values Accessories Attributes'
+
+
 def get_upload_path(instance, filename):
     return "main-block/product/{0}/{1}/{2}".format(instance.category, instance.name, filename).lower()
 
