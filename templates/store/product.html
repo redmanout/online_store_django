@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="page page_inner">
+			<div class="page__header">
+				<div class="page__container">
+					<nav class="page__breadcrumbs breadcrumbs">
+						<ul class="breadcrumbs__list">
+							<li class="breadcrumbs__item">
+								<a href="" class="breadcrumbs__link">Главная</a>
+							</li>
+							<li class="breadcrumbs__item">
+								<a href="" class="breadcrumbs__link">Основания</a>
+							</li>
+							<li class="breadcrumbs__item">
+								<span class="breadcrumbs__current">Yinhe V1 Pro</span>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div class="product">
+				<div class="product__container">
+					<div class="product__main main-product">
+						<div class="main-product__images images-product">
+							<div class="images-product__slider swiper">
+								<div class="images-product__swiper swiper-wrapper">
+									<div class="images-product__slide-ibg_contain swiper-slide">
+										<picture><source srcset="img/main-block/product/product.webp" type="image/webp"><img src="img/main-block/product/product.jpeg" alt=""></picture>
+									</div>
+									<div class="images-product__slide-ibg_contain swiper-slide">
+										<picture><source srcset="img/main-block/product/product.webp" type="image/webp"><img src="img/main-block/product/product.jpeg" alt=""></picture>
+									</div>
+									<div class="images-product__slide-ibg_contain swiper-slide">
+										<picture><source srcset="img/main-block/product/product.webp" type="image/webp"><img src="img/main-block/product/product.jpeg" alt=""></picture>
+									</div>
+									<div class="images-product__slide-ibg_contain swiper-slide">
+										<picture><source srcset="img/main-block/product/product.webp" type="image/webp"><img src="img/main-block/product/product.jpeg" alt=""></picture>
+									</div>
+									<div class="images-product__slide-ibg swiper-slide">
+										<picture><source srcset="img/main-block/product/product.webp" type="image/webp"><img src="img/main-block/product/product.jpeg" alt=""></picture>
+									</div>
+								</div>
+							</div>
+							<div class="images-product__thumbs thumbs-images swiper">
+								<div class="thumbs-images__swiper swiper-wrapper">
+									<div class="thumbs-images__slide-ibg swiper-slide">
+										<picture><source srcset="img/main-block/product/product.webp" type="image/webp"><img src="img/main-block/product/product.jpeg" alt=""></picture>
+									</div>
+									<div class="thumbs-images__slide-ibg swiper-slide">
+										<picture><source srcset="img/main-block/product/product.webp" type="image/webp"><img src="img/main-block/product/product.jpeg" alt=""></picture>
+									</div>
+									<div class="thumbs-images__slide-ibg swiper-slide">
+										<picture><source srcset="img/main-block/product/product.webp" type="image/webp"><img src="img/main-block/product/product.jpeg" alt=""></picture>
+									</div>
+									<div class="thumbs-images__slide-ibg swiper-slide">
+										<picture><source srcset="img/main-block/product/product.webp" type="image/webp"><img src="img/main-block/product/product.jpeg" alt=""></picture>
+									</div>
+									<div class="thumbs-images__slide-ibg swiper-slide">
+										<picture><source srcset="img/main-block/product/product.webp" type="image/webp"><img src="img/main-block/product/product.jpeg" alt=""></picture>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="main-product__body body-product">
+							<div class="body-product__header header-product">
+								<div class="header-product__line">
+									<h1 class="header-product__title">Основание</h1>
+									<a class="header-product__link _icon-scales"></a>
+									<a class="header-product__link _icon-heart"></a>
+								</div>
+								<div class="header-product__rating rating">
+									<div class="rating__body">
+										<div class="rating__active"></div>
+										<div class="rating__items">
+											<input type="radio" class="rating__item" value="1" name="rating">
+											<input type="radio" class="rating__item" value="2" name="rating">
+											<input type="radio" class="rating__item" value="3" name="rating">
+											<input type="radio" class="rating__item" value="4" name="rating">
+											<input type="radio" class="rating__item" value="5" name="rating">
+										</div>
+									</div>
+									<div class="rating__value">3.6</div>
+								</div>
+							</div>
+							<div class="body-product__table table-product">
+								<div class="table-product__label">Артикул:</div>
+								<div class="table-product__value">AF0000001952</div>
+								<div class="table-product__label">Торговая марка:</div>
+								<div class="table-product__value">WUESTHOF (Германия)</div>
+								<div class="table-product__label">Серия:</div>
+								<div class="table-product__value">Ножи серии Classic Ikon</div>
+								<div class="table-product__label">Бонусные баллы: </div>
+								<div class="table-product__value">38</div>
+							</div>
+							<div class="body-product__options options-product">
+								<div class="options-product__label">Сталь</div>
+								<div class="options-product__value">
+									<select name="form[]" class="form">
+										<option value="1" selected>Пункт №1</option>
+										<option value="2">Пункт №2</option>
+										<option value="3">Пункт №3</option>
+										<option value="4">Пункт №4</option>
+									</select>
+								</div>
+							</div>
+							<div class="body-product__actions actions-product">
+								<div class="actions-product__price">3 865 грн.</div>
+								<div class="actions-product__row">
+									<div data-quantity class="actions-product__quantity quantity">
+										<button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+										<div class="quantity__input">
+											<input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+										</div>
+										<button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+									</div>
+									<div class="actions-product__buttons">
+										<a href="" class="actions-product__cart button"><span class="_icon-cart">В корзину</span></a>
+										<a href="" class="actions-product__button button button_black">Купить в 1 клик</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div data-tabs="992" class="product__info product-info">
+						<nav data-tabs-titles class="product-info__navigation">
+							<button type="submit" class="product-info__title _tab-active">Описание</button>
+							<button type="submit" class="product-info__title">Характеристики</button>
+							<button type="submit" class="product-info__title">Отзывы</button>
+						</nav>
+						<div data-tabs-body class="product-info__content">
+							<div class="product-info__body">
+								1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio exercitationem, excepturi similique nulla, voluptatem reprehenderit neque a minima eaque tenetur? Quos fugit voluptate enim quo sed, minima error molestias!
+							</div>
+							<div class="product-info__body">
+								2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio exercitationem, excepturi similique nulla, voluptatem reprehenderit neque a minima eaque tenetur? Quos fugit voluptate enim quo sed, minima error molestias!
+							</div>
+							<div class="product-info__body">
+								3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio exercitationem, excepturi similique nulla, voluptatem reprehenderit neque a minima eaque tenetur? Quos fugit voluptate enim quo sed, minima error molestias!
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+{% endblock %}
