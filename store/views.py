@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import *
 
 
@@ -146,12 +146,18 @@ class CategoryList(
 
     def get_context_data(self, *, object_list=None, **kwargs):
         ctx = super().get_context_data(**kwargs)
+        ctx['product'] = Product.objects.all()
         ctx['phone_numbers_contacts'] = [
             '+38(098)980-96-21',
             '+38(098)980-96-22',
             '+38(098)980-96-23',
         ]
         return ctx
+
+
+class ProductView(DetailView):
+    model = Product
+    template_name = 'store/product.html'
 
 
 def about_us(request):

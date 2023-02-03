@@ -1,5 +1,6 @@
 from django.db import models
 from autoslug import AutoSlugField
+from django.urls import reverse
 
 
 # Create your models here.
@@ -37,11 +38,15 @@ class CategoryProduct(models.Model):
         verbose_name_plural = 'Categories'
 
 
+def get_upload_path(instance, filename):
+    return "main-block/product/{0}/{1}/{2}".format(instance.category, instance.name, filename).lower()
+
+
 class Product(models.Model):
     category = models.ForeignKey(
         CategoryProduct,
         verbose_name='Category',
-        related_name='products',
+        related_name='category',
         on_delete=models.CASCADE,
     )
     name = models.CharField(
@@ -86,9 +91,16 @@ class Product(models.Model):
         verbose_name='Updated at',
         auto_now=True,
     )
+    image = models.ImageField(
+        blank=True,
+        upload_to=get_upload_path,
+    )
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('product', kwargs={'slug': self.slug})
 
     class Meta:
         ordering = ['created_at']
@@ -158,6 +170,7 @@ class BladesSize(models.Model):
 class ValueBladesAttribute(models.Model):
     product = models.ForeignKey(
         Product,
+        related_name='blade_attribute',
         on_delete=models.CASCADE,
     )
     brand = models.ForeignKey(
@@ -756,19 +769,16 @@ class ValueAccessoriesAttribute(models.Model):
         verbose_name_plural = 'Values Accessories Attributes'
 
 
-def get_upload_path(instance, filename):
-    return "main-block/product/{0}/{1}/{2}".format(instance.category, instance.name, filename).lower()
-
-
 class Images(models.Model):
     category = models.ForeignKey(
         CategoryProduct,
         on_delete=models.CASCADE,
         default=None,
-        related_name='images_products'
+
     )
     product = models.ForeignKey(
         Product,
+        related_name='images_product',
         on_delete=models.CASCADE,
     )
     name = models.CharField(
