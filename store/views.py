@@ -146,7 +146,9 @@ class CategoryList(
 
     def get_context_data(self, *, object_list=None, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['product'] = Product.objects.all()
+        ctx['product_bestseller'] = Product.objects.filter(bestseller=True)
+        ctx['product_new'] = Product.objects.filter(new=True)
+        ctx['product_stock'] = Product.objects.filter(stock=True)
         ctx['phone_numbers_contacts'] = [
             '+38(098)980-96-21',
             '+38(098)980-96-22',

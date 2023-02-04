@@ -22,7 +22,7 @@ class ImagesAdmin(admin.ModelAdmin):
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'category', 'name', 'description', 'characteristics', 'available_status', 'quantity_in_stock', 'price',
+        'id', 'category', 'name', 'bestseller', 'new', 'stock', 'characteristics', 'available_status', 'quantity_in_stock', 'price',
         'created_at', 'updated_at', 'slug',)
     list_display_links = ('id', 'name', 'category',)
     search_fields = ('name',)

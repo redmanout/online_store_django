@@ -51,7 +51,7 @@ class Product(models.Model):
     )
     name = models.CharField(
         verbose_name='Name',
-        max_length=100,
+        max_length=200,
         db_index=True,
     )
     slug = AutoSlugField(
@@ -72,6 +72,18 @@ class Product(models.Model):
     )
     available_status = models.BooleanField(
         verbose_name='Available status',
+        default=True,
+    )
+    bestseller = models.BooleanField(
+        verbose_name='Bestseller',
+        default=True,
+    )
+    new = models.BooleanField(
+        verbose_name='New',
+        default=True,
+    )
+    stock = models.BooleanField(
+        verbose_name='Stock',
         default=True,
     )
     quantity_in_stock = models.PositiveIntegerField(
@@ -782,7 +794,7 @@ class Images(models.Model):
         on_delete=models.CASCADE,
     )
     name = models.CharField(
-        max_length=40,
+        max_length=200,
         blank=True,
         verbose_name='Name',
     )

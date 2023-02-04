@@ -184,7 +184,7 @@
                     </div>
                     <div class="product-slider__slider">
                         <div class="product-slider__swiper swiper-wrapper">
-                            {% for el in product %}
+                            {% for el in product_bestseller %}
                                 <div class="product-slider__slide swiper-slide">
                                     <article class="product-card">
                                         <a href="{{ el.get_absolute_url }}" class="product-card__image">
@@ -252,202 +252,52 @@
                     <div class="products-new__content">
                         <div class="products-new__slider swiper">
                             <div class="products-new__wrapper swiper-wrapper">
-                                <div class="products-new__slide swiper-slide">
-                                    <article class="product-card">
-                                        <a href="" class="product-card__image">
+                                {% for el in product_new %}
+                                    <div class="products-new__slide swiper-slide">
+                                        <article class="product-card">
+                                            <a href="{{ el.get_absolute_url }}" class="product-card__image">
 												<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-													<picture><source
-                                                            srcset="/media/main-block/card_product/base-product.webp"
-                                                            type="image/webp"><img
-                                                            src="/media/main-block/card_product/base-product.jpeg"
-                                                            alt="Картинка"></picture>
+													<img src="{{ el.image.url }}" alt="{{ el.name }}">
 												</span>
-                                        </a>
-                                        <div class="product-card__body">
-                                            <h4 class="product-card__title">
-                                                <a href="" class="product-card__link-title">Основание</a>
-                                            </h4>
-                                            <div class="product-card__info info-product-card">
-                                                <div class="info-product-card__size">145х90</div>
-                                                <div class="info-product-card__materials">Дерево</div>
-                                            </div>
-                                            <div class="product-card__rating rating rating_set">
-                                                <div class="rating__body">
-                                                    <div class="rating__active"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="2"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="3"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="4"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="5"
-                                                               name="rating">
-                                                    </div>
+                                            </a>
+                                            <div class="product-card__body">
+                                                <h4 class="product-card__title">
+                                                    <a href="" class="product-card__link-title">{{ el.name }}</a>
+                                                </h4>
+                                                <div class="product-card__info info-product-card">
+                                                    <div class="info-product-card__size">145х90</div>
+                                                    <div class="info-product-card__materials">Дерево</div>
                                                 </div>
-                                                <div class="rating__value">3.6</div>
-                                                <div class="rating__info">10 отзывов</div>
-                                            </div>
-                                            <div class="product-card__footer">
-                                                <div class="product-card__price">2000 грн</div>
-                                                <a href="" class="product-card__compare _icon-scales"></a>
-                                                <a href="" class="product-card__heart _icon-heart"></a>
-                                            </div>
-                                            <button type="button" class="product-card__cart button"><span
-                                                    class="_icon-cart">В
-														корзину</span></button>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="products-new__slide swiper-slide">
-                                    <article class="product-card">
-                                        <a href="" class="product-card__image">
-												<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-													<picture><source
-                                                            srcset="/media/main-block/card_product/base-product.webp"
-                                                            type="image/webp"><img
-                                                            src="/media/main-block/card_product/base-product.jpeg"
-                                                            alt="Картинка"></picture>
-												</span>
-                                        </a>
-                                        <div class="product-card__body">
-                                            <h4 class="product-card__title">
-                                                <a href="" class="product-card__link-title">Основание</a>
-                                            </h4>
-                                            <div class="product-card__info info-product-card">
-                                                <div class="info-product-card__size">145х90</div>
-                                                <div class="info-product-card__materials">Дерево</div>
-                                            </div>
-                                            <div class="product-card__rating rating rating_set">
-                                                <div class="rating__body">
-                                                    <div class="rating__active"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="2"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="3"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="4"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="5"
-                                                               name="rating">
+                                                <div class="product-card__rating rating rating_set">
+                                                    <div class="rating__body">
+                                                        <div class="rating__active"></div>
+                                                        <div class="rating__items">
+                                                            <input type="radio" class="rating__item" value="1"
+                                                                   name="rating">
+                                                            <input type="radio" class="rating__item" value="2"
+                                                                   name="rating">
+                                                            <input type="radio" class="rating__item" value="3"
+                                                                   name="rating">
+                                                            <input type="radio" class="rating__item" value="4"
+                                                                   name="rating">
+                                                            <input type="radio" class="rating__item" value="5"
+                                                                   name="rating">
+                                                        </div>
                                                     </div>
+                                                    <div class="rating__value">3.6</div>
+                                                    <div class="rating__info">10 отзывов</div>
                                                 </div>
-                                                <div class="rating__value">3.6</div>
-                                                <div class="rating__info">10 отзывов</div>
-                                            </div>
-                                            <div class="product-card__footer">
-                                                <div class="product-card__price">2000 грн</div>
-                                                <a href="" class="product-card__compare _icon-scales"></a>
-                                                <a href="" class="product-card__heart _icon-heart"></a>
-                                            </div>
-                                            <button type="button" class="product-card__cart button"><span
-                                                    class="_icon-cart">В
-														корзину</span></button>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="products-new__slide swiper-slide">
-                                    <article class="product-card">
-                                        <a href="" class="product-card__image">
-												<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-													<picture><source
-                                                            srcset="/media/main-block/card_product/base-product.webp"
-                                                            type="image/webp"><img
-                                                            src="/media/main-block/card_product/base-product.jpeg"
-                                                            alt="Картинка"></picture>
-												</span>
-                                        </a>
-                                        <div class="product-card__body">
-                                            <h4 class="product-card__title">
-                                                <a href="" class="product-card__link-title">Основание</a>
-                                            </h4>
-                                            <div class="product-card__info info-product-card">
-                                                <div class="info-product-card__size">145х90</div>
-                                                <div class="info-product-card__materials">Дерево</div>
-                                            </div>
-                                            <div class="product-card__rating rating rating_set">
-                                                <div class="rating__body">
-                                                    <div class="rating__active"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="2"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="3"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="4"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="5"
-                                                               name="rating">
-                                                    </div>
+                                                <div class="product-card__footer">
+                                                    <div class="product-card__price">{{ el.price }}</div>
+                                                    <button href="" class="product-card__compare _icon-scales"></button>
+                                                    <button href="" class="product-card__heart _icon-heart"></button>
                                                 </div>
-                                                <div class="rating__value">3.6</div>
-                                                <div class="rating__info">10 отзывов</div>
+                                                <button type="button" class="product-card__cart button"><span
+                                                        class="_icon-cart">Add to cart</span></button>
                                             </div>
-                                            <div class="product-card__footer">
-                                                <div class="product-card__price">2000 грн</div>
-                                                <a href="" class="product-card__compare _icon-scales"></a>
-                                                <a href="" class="product-card__heart _icon-heart"></a>
-                                            </div>
-                                            <button type="button" class="product-card__cart button"><span
-                                                    class="_icon-cart">В
-														корзину</span></button>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="products-new__slide swiper-slide">
-                                    <article class="product-card">
-                                        <a href="" class="product-card__image">
-												<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-													<picture><source
-                                                            srcset="/media/main-block/card_product/base-product.webp"
-                                                            type="image/webp"><img
-                                                            src="/media/main-block/card_product/base-product.jpeg"
-                                                            alt="Картинка"></picture>
-												</span>
-                                        </a>
-                                        <div class="product-card__body">
-                                            <h4 class="product-card__title">
-                                                <a href="" class="product-card__link-title">Основание</a>
-                                            </h4>
-                                            <div class="product-card__info info-product-card">
-                                                <div class="info-product-card__size">145х90</div>
-                                                <div class="info-product-card__materials">Дерево</div>
-                                            </div>
-                                            <div class="product-card__rating rating rating_set">
-                                                <div class="rating__body">
-                                                    <div class="rating__active"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="2"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="3"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="4"
-                                                               name="rating">
-                                                        <input type="radio" class="rating__item" value="5"
-                                                               name="rating">
-                                                    </div>
-                                                </div>
-                                                <div class="rating__value">3.6</div>
-                                                <div class="rating__info">10 отзывов</div>
-                                            </div>
-                                            <div class="product-card__footer">
-                                                <div class="product-card__price">2000 грн</div>
-                                                <a href="" class="product-card__compare _icon-scales"></a>
-                                                <a href="" class="product-card__heart _icon-heart"></a>
-                                            </div>
-                                            <button type="button" class="product-card__cart button"><span
-                                                    class="_icon-cart">В
-														корзину</span></button>
-                                        </div>
-                                    </article>
-                                </div>
+                                        </article>
+                                    </div>
+                                {% endfor %}
                             </div>
                             <div class="products-new__dotts dotts"></div>
                         </div>
@@ -464,358 +314,52 @@
                     </div>
                     <div class="product-slider__slider">
                         <div class="product-slider__swiper swiper-wrapper">
-                            <div class="product-slider__slide swiper-slide">
-                                <article class="product-card">
-                                    <a href="" class="product-card__image">
+                            {% for el in product_stock %}
+                                <div class="product-slider__slide swiper-slide">
+                                    <article class="product-card">
+                                        <a href="{{ el.get_absolute_url }}" class="product-card__image">
 											<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-												<picture><source
-                                                        srcset="/media/main-block/card_product/base-product.webp"
-                                                        type="image/webp"><img
-                                                        src="/media/main-block/card_product/base-product.jpeg"
-                                                        alt="Картинка"></picture>
+												<img src="{{ el.image.url }}" alt="{{ el.name }}">
 											</span>
-                                    </a>
-                                    <div class="product-card__body">
-                                        <h4 class="product-card__title">
-                                            <a href="" class="product-card__link-title">Основание</a>
-                                        </h4>
-                                        <div class="product-card__info info-product-card">
-                                            <div class="info-product-card__size">145х90</div>
-                                            <div class="info-product-card__materials">Дерево</div>
-                                        </div>
-                                        <div class="product-card__rating rating rating_set">
-                                            <div class="rating__body">
-                                                <div class="rating__active"></div>
-                                                <div class="rating__items">
-                                                    <input type="radio" class="rating__item" value="1" name="rating">
-                                                    <input type="radio" class="rating__item" value="2" name="rating">
-                                                    <input type="radio" class="rating__item" value="3" name="rating">
-                                                    <input type="radio" class="rating__item" value="4" name="rating">
-                                                    <input type="radio" class="rating__item" value="5" name="rating">
-                                                </div>
+                                        </a>
+                                        <div class="product-card__body">
+                                            <h4 class="product-card__title">
+                                                <a href="" class="product-card__link-title">{{ el.name }}</a>
+                                            </h4>
+                                            <div class="product-card__info info-product-card">
+                                                <div class="info-product-card__size">145х90</div>
+                                                <div class="info-product-card__materials">Дерево</div>
                                             </div>
-                                            <div class="rating__value">3.6</div>
-                                            <div class="rating__info">10 отзывов</div>
-                                        </div>
-                                        <div class="product-card__footer">
-                                            <div class="product-card__price">2000 грн</div>
-                                            <a href="" class="product-card__compare _icon-scales"></a>
-                                            <a href="" class="product-card__heart _icon-heart"></a>
-                                        </div>
-                                        <button type="button" class="product-card__cart button"><span
-                                                class="_icon-cart">В
-													корзину</span></button>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="product-slider__slide swiper-slide">
-                                <article class="product-card">
-                                    <a href="" class="product-card__image">
-											<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-												<picture><source
-                                                        srcset="/media/main-block/card_product/base-product.webp"
-                                                        type="image/webp"><img
-                                                        src="/media/main-block/card_product/base-product.jpeg"
-                                                        alt="Картинка"></picture>
-											</span>
-                                    </a>
-                                    <div class="product-card__body">
-                                        <h4 class="product-card__title">
-                                            <a href="" class="product-card__link-title">Основание</a>
-                                        </h4>
-                                        <div class="product-card__info info-product-card">
-                                            <div class="info-product-card__size">145х90</div>
-                                            <div class="info-product-card__materials">Дерево</div>
-                                        </div>
-                                        <div class="product-card__rating rating rating_set">
-                                            <div class="rating__body">
-                                                <div class="rating__active"></div>
-                                                <div class="rating__items">
-                                                    <input type="radio" class="rating__item" value="1" name="rating">
-                                                    <input type="radio" class="rating__item" value="2" name="rating">
-                                                    <input type="radio" class="rating__item" value="3" name="rating">
-                                                    <input type="radio" class="rating__item" value="4" name="rating">
-                                                    <input type="radio" class="rating__item" value="5" name="rating">
+                                            <div class="product-card__rating rating rating_set">
+                                                <div class="rating__body">
+                                                    <div class="rating__active"></div>
+                                                    <div class="rating__items">
+                                                        <input type="radio" class="rating__item" value="1"
+                                                               name="rating">
+                                                        <input type="radio" class="rating__item" value="2"
+                                                               name="rating">
+                                                        <input type="radio" class="rating__item" value="3"
+                                                               name="rating">
+                                                        <input type="radio" class="rating__item" value="4"
+                                                               name="rating">
+                                                        <input type="radio" class="rating__item" value="5"
+                                                               name="rating">
+                                                    </div>
                                                 </div>
+                                                <div class="rating__value">3.6</div>
+                                                <div class="rating__info">10 отзывов</div>
                                             </div>
-                                            <div class="rating__value">3.6</div>
-                                            <div class="rating__info">10 отзывов</div>
-                                        </div>
-                                        <div class="product-card__footer">
-                                            <div class="product-card__price">2000 грн</div>
-                                            <a href="" class="product-card__compare _icon-scales"></a>
-                                            <a href="" class="product-card__heart _icon-heart"></a>
-                                        </div>
-                                        <button type="button" class="product-card__cart button"><span
-                                                class="_icon-cart">В
-													корзину</span></button>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="product-slider__slide swiper-slide">
-                                <article class="product-card">
-                                    <a href="" class="product-card__image">
-											<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-												<picture><source
-                                                        srcset="/media/main-block/card_product/base-product.webp"
-                                                        type="image/webp"><img
-                                                        src="/media/main-block/card_product/base-product.jpeg"
-                                                        alt="Картинка"></picture>
-											</span>
-                                    </a>
-                                    <div class="product-card__body">
-                                        <h4 class="product-card__title">
-                                            <a href="" class="product-card__link-title">Основание</a>
-                                        </h4>
-                                        <div class="product-card__info info-product-card">
-                                            <div class="info-product-card__size">145х90</div>
-                                            <div class="info-product-card__materials">Дерево</div>
-                                        </div>
-                                        <div class="product-card__rating rating rating_set">
-                                            <div class="rating__body">
-                                                <div class="rating__active"></div>
-                                                <div class="rating__items">
-                                                    <input type="radio" class="rating__item" value="1" name="rating">
-                                                    <input type="radio" class="rating__item" value="2" name="rating">
-                                                    <input type="radio" class="rating__item" value="3" name="rating">
-                                                    <input type="radio" class="rating__item" value="4" name="rating">
-                                                    <input type="radio" class="rating__item" value="5" name="rating">
-                                                </div>
+                                            <div class="product-card__footer">
+                                                <div class="product-card__price">{{ el.price }}</div>
+                                                <a href="" class="product-card__compare _icon-scales"></a>
+                                                <a href="" class="product-card__heart _icon-heart"></a>
                                             </div>
-                                            <div class="rating__value">3.6</div>
-                                            <div class="rating__info">10 отзывов</div>
+                                            <button type="button" class="product-card__cart button"><span
+                                                    class="_icon-cart">Add to cart</span></button>
                                         </div>
-                                        <div class="product-card__footer">
-                                            <div class="product-card__price">2000 грн</div>
-                                            <a href="" class="product-card__compare _icon-scales"></a>
-                                            <a href="" class="product-card__heart _icon-heart"></a>
-                                        </div>
-                                        <button type="button" class="product-card__cart button"><span
-                                                class="_icon-cart">В
-													корзину</span></button>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="product-slider__slide swiper-slide">
-                                <article class="product-card">
-                                    <a href="" class="product-card__image">
-											<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-												<picture><source
-                                                        srcset="/media/main-block/card_product/base-product.webp"
-                                                        type="image/webp"><img
-                                                        src="/media/main-block/card_product/base-product.jpeg"
-                                                        alt="Картинка"></picture>
-											</span>
-                                    </a>
-                                    <div class="product-card__body">
-                                        <h4 class="product-card__title">
-                                            <a href="" class="product-card__link-title">Основание</a>
-                                        </h4>
-                                        <div class="product-card__info info-product-card">
-                                            <div class="info-product-card__size">145х90</div>
-                                            <div class="info-product-card__materials">Дерево</div>
-                                        </div>
-                                        <div class="product-card__rating rating rating_set">
-                                            <div class="rating__body">
-                                                <div class="rating__active"></div>
-                                                <div class="rating__items">
-                                                    <input type="radio" class="rating__item" value="1" name="rating">
-                                                    <input type="radio" class="rating__item" value="2" name="rating">
-                                                    <input type="radio" class="rating__item" value="3" name="rating">
-                                                    <input type="radio" class="rating__item" value="4" name="rating">
-                                                    <input type="radio" class="rating__item" value="5" name="rating">
-                                                </div>
-                                            </div>
-                                            <div class="rating__value">3.6</div>
-                                            <div class="rating__info">10 отзывов</div>
-                                        </div>
-                                        <div class="product-card__footer">
-                                            <div class="product-card__price">2000 грн</div>
-                                            <a href="" class="product-card__compare _icon-scales"></a>
-                                            <a href="" class="product-card__heart _icon-heart"></a>
-                                        </div>
-                                        <button type="button" class="product-card__cart button"><span
-                                                class="_icon-cart">В
-													корзину</span></button>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="product-slider__slide swiper-slide">
-                                <article class="product-card">
-                                    <a href="" class="product-card__image">
-											<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-												<picture><source
-                                                        srcset="/media/main-block/card_product/base-product.webp"
-                                                        type="image/webp"><img
-                                                        src="/media/main-block/card_product/base-product.jpeg"
-                                                        alt="Картинка"></picture>
-											</span>
-                                    </a>
-                                    <div class="product-card__body">
-                                        <h4 class="product-card__title">
-                                            <a href="" class="product-card__link-title">Основание</a>
-                                        </h4>
-                                        <div class="product-card__info info-product-card">
-                                            <div class="info-product-card__size">145х90</div>
-                                            <div class="info-product-card__materials">Дерево</div>
-                                        </div>
-                                        <div class="product-card__rating rating rating_set">
-                                            <div class="rating__body">
-                                                <div class="rating__active"></div>
-                                                <div class="rating__items">
-                                                    <input type="radio" class="rating__item" value="1" name="rating">
-                                                    <input type="radio" class="rating__item" value="2" name="rating">
-                                                    <input type="radio" class="rating__item" value="3" name="rating">
-                                                    <input type="radio" class="rating__item" value="4" name="rating">
-                                                    <input type="radio" class="rating__item" value="5" name="rating">
-                                                </div>
-                                            </div>
-                                            <div class="rating__value">3.6</div>
-                                            <div class="rating__info">10 отзывов</div>
-                                        </div>
-                                        <div class="product-card__footer">
-                                            <div class="product-card__price">2000 грн</div>
-                                            <a href="" class="product-card__compare _icon-scales"></a>
-                                            <a href="" class="product-card__heart _icon-heart"></a>
-                                        </div>
-                                        <button type="button" class="product-card__cart button"><span
-                                                class="_icon-cart">В
-													корзину</span></button>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="product-slider__slide swiper-slide">
-                                <article class="product-card">
-                                    <a href="" class="product-card__image">
-											<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-												<picture><source
-                                                        srcset="/media/main-block/card_product/base-product.webp"
-                                                        type="image/webp"><img
-                                                        src="/media/main-block/card_product/base-product.jpeg"
-                                                        alt="Картинка"></picture>
-											</span>
-                                    </a>
-                                    <div class="product-card__body">
-                                        <h4 class="product-card__title">
-                                            <a href="" class="product-card__link-title">Основание</a>
-                                        </h4>
-                                        <div class="product-card__info info-product-card">
-                                            <div class="info-product-card__size">145х90</div>
-                                            <div class="info-product-card__materials">Дерево</div>
-                                        </div>
-                                        <div class="product-card__rating rating rating_set">
-                                            <div class="rating__body">
-                                                <div class="rating__active"></div>
-                                                <div class="rating__items">
-                                                    <input type="radio" class="rating__item" value="1" name="rating">
-                                                    <input type="radio" class="rating__item" value="2" name="rating">
-                                                    <input type="radio" class="rating__item" value="3" name="rating">
-                                                    <input type="radio" class="rating__item" value="4" name="rating">
-                                                    <input type="radio" class="rating__item" value="5" name="rating">
-                                                </div>
-                                            </div>
-                                            <div class="rating__value">3.6</div>
-                                            <div class="rating__info">10 отзывов</div>
-                                        </div>
-                                        <div class="product-card__footer">
-                                            <div class="product-card__price">2000 грн</div>
-                                            <a href="" class="product-card__compare _icon-scales"></a>
-                                            <a href="" class="product-card__heart _icon-heart"></a>
-                                        </div>
-                                        <button type="button" class="product-card__cart button"><span
-                                                class="_icon-cart">В
-													корзину</span></button>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="product-slider__slide swiper-slide">
-                                <article class="product-card">
-                                    <a href="" class="product-card__image">
-											<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-												<picture><source
-                                                        srcset="/media/main-block/card_product/base-product.webp"
-                                                        type="image/webp"><img
-                                                        src="/media/main-block/card_product/base-product.jpeg"
-                                                        alt="Картинка"></picture>
-											</span>
-                                    </a>
-                                    <div class="product-card__body">
-                                        <h4 class="product-card__title">
-                                            <a href="" class="product-card__link-title">Основание</a>
-                                        </h4>
-                                        <div class="product-card__info info-product-card">
-                                            <div class="info-product-card__size">145х90</div>
-                                            <div class="info-product-card__materials">Дерево</div>
-                                        </div>
-                                        <div class="product-card__rating rating rating_set">
-                                            <div class="rating__body">
-                                                <div class="rating__active"></div>
-                                                <div class="rating__items">
-                                                    <input type="radio" class="rating__item" value="1" name="rating">
-                                                    <input type="radio" class="rating__item" value="2" name="rating">
-                                                    <input type="radio" class="rating__item" value="3" name="rating">
-                                                    <input type="radio" class="rating__item" value="4" name="rating">
-                                                    <input type="radio" class="rating__item" value="5" name="rating">
-                                                </div>
-                                            </div>
-                                            <div class="rating__value">3.6</div>
-                                            <div class="rating__info">10 отзывов</div>
-                                        </div>
-                                        <div class="product-card__footer">
-                                            <div class="product-card__price">2000 грн</div>
-                                            <a href="" class="product-card__compare _icon-scales"></a>
-                                            <a href="" class="product-card__heart _icon-heart"></a>
-                                        </div>
-                                        <button type="button" class="product-card__cart button"><span
-                                                class="_icon-cart">В
-													корзину</span></button>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="product-slider__slide swiper-slide">
-                                <article class="product-card">
-                                    <a href="" class="product-card__image">
-											<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
-												<picture><source
-                                                        srcset="/media/main-block/card_product/base-product.webp"
-                                                        type="image/webp"><img
-                                                        src="/media/main-block/card_product/base-product.jpeg"
-                                                        alt="Картинка"></picture>
-											</span>
-                                    </a>
-                                    <div class="product-card__body">
-                                        <h4 class="product-card__title">
-                                            <a href="" class="product-card__link-title">Основание</a>
-                                        </h4>
-                                        <div class="product-card__info info-product-card">
-                                            <div class="info-product-card__size">145х90</div>
-                                            <div class="info-product-card__materials">Дерево</div>
-                                        </div>
-                                        <div class="product-card__rating rating rating_set">
-                                            <div class="rating__body">
-                                                <div class="rating__active"></div>
-                                                <div class="rating__items">
-                                                    <input type="radio" class="rating__item" value="1" name="rating">
-                                                    <input type="radio" class="rating__item" value="2" name="rating">
-                                                    <input type="radio" class="rating__item" value="3" name="rating">
-                                                    <input type="radio" class="rating__item" value="4" name="rating">
-                                                    <input type="radio" class="rating__item" value="5" name="rating">
-                                                </div>
-                                            </div>
-                                            <div class="rating__value">3.6</div>
-                                            <div class="rating__info">10 отзывов</div>
-                                        </div>
-                                        <div class="product-card__footer">
-                                            <div class="product-card__price">2000 грн</div>
-                                            <a href="" class="product-card__compare _icon-scales"></a>
-                                            <a href="" class="product-card__heart _icon-heart"></a>
-                                        </div>
-                                        <button type="button" class="product-card__cart button"><span
-                                                class="_icon-cart">В
-													корзину</span></button>
-                                    </div>
-                                </article>
-                            </div>
+                                    </article>
+                                </div>
+                            {% endfor %}
                         </div>
                         <div class="product-slider__dotts dotts"></div>
                     </div>

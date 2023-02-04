@@ -25,69 +25,33 @@
                     <div class="main-product__images images-product">
                         <div class="images-product__slider swiper">
                             <div class="images-product__swiper swiper-wrapper">
-                                <div class="images-product__slide-ibg_contain swiper-slide">
-                                    <picture>
-                                        <source srcset="img/main-block/product/product.webp" type="image/webp">
-                                        <img src="img/main-block/product/product.jpeg" alt=""></picture>
-                                </div>
-                                <div class="images-product__slide-ibg_contain swiper-slide">
-                                    <picture>
-                                        <source srcset="img/main-block/product/product.webp" type="image/webp">
-                                        <img src="img/main-block/product/product.jpeg" alt=""></picture>
-                                </div>
-                                <div class="images-product__slide-ibg_contain swiper-slide">
-                                    <picture>
-                                        <source srcset="img/main-block/product/product.webp" type="image/webp">
-                                        <img src="img/main-block/product/product.jpeg" alt=""></picture>
-                                </div>
-                                <div class="images-product__slide-ibg_contain swiper-slide">
-                                    <picture>
-                                        <source srcset="img/main-block/product/product.webp" type="image/webp">
-                                        <img src="img/main-block/product/product.jpeg" alt=""></picture>
-                                </div>
-                                <div class="images-product__slide-ibg swiper-slide">
-                                    <picture>
-                                        <source srcset="img/main-block/product/product.webp" type="image/webp">
-                                        <img src="img/main-block/product/product.jpeg" alt=""></picture>
-                                </div>
+                                {% for image in object.images_product.all %}
+                                    <div class="images-product__slide-ibg swiper-slide">
+                                        <picture>
+                                            <source srcset="{{ image.image.url }}" type="image/webp">
+                                            <img src="{{ image.image.url }}" alt=""></picture>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="images-product__thumbs thumbs-images swiper">
                             <div class="thumbs-images__swiper swiper-wrapper">
-                                <div class="thumbs-images__slide-ibg swiper-slide">
-                                    <picture>
-                                        <source srcset="img/main-block/product/product.webp" type="image/webp">
-                                        <img src="img/main-block/product/product.jpeg" alt=""></picture>
-                                </div>
-                                <div class="thumbs-images__slide-ibg swiper-slide">
-                                    <picture>
-                                        <source srcset="img/main-block/product/product.webp" type="image/webp">
-                                        <img src="img/main-block/product/product.jpeg" alt=""></picture>
-                                </div>
-                                <div class="thumbs-images__slide-ibg swiper-slide">
-                                    <picture>
-                                        <source srcset="img/main-block/product/product.webp" type="image/webp">
-                                        <img src="img/main-block/product/product.jpeg" alt=""></picture>
-                                </div>
-                                <div class="thumbs-images__slide-ibg swiper-slide">
-                                    <picture>
-                                        <source srcset="img/main-block/product/product.webp" type="image/webp">
-                                        <img src="img/main-block/product/product.jpeg" alt=""></picture>
-                                </div>
-                                <div class="thumbs-images__slide-ibg swiper-slide">
-                                    <picture>
-                                        <source srcset="img/main-block/product/product.webp" type="image/webp">
-                                        <img src="img/main-block/product/product.jpeg" alt=""></picture>
-                                </div>
+                                {% for image in object.images_product.all %}
+                                    <div class="thumbs-images__slide-ibg swiper-slide">
+                                        <picture>
+                                            <source srcset="{{ image.image.url }}" type="image/webp">
+                                            <img src="{{ image.image.url }}" alt=""></picture>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
                     <div class="main-product__body body-product">
                         <div class="body-product__header header-product">
                             <div class="header-product__line">
-                                <h1 class="header-product__title">Основание</h1>
-                                <a class="header-product__link _icon-scales"></a>
-                                <a class="header-product__link _icon-heart"></a>
+                                <h1 class="header-product__title">{{ object.name }}</h1>
+                                <button class="header-product__link _icon-scales"></button>
+                                <button class="header-product__link _icon-heart"></button>
                             </div>
                             <div class="header-product__rating rating">
                                 <div class="rating__body">
@@ -125,7 +89,7 @@
                             </div>
                         </div>
                         <div class="body-product__actions actions-product">
-                            <div class="actions-product__price">3 865 грн.</div>
+                            <div class="actions-product__price">{{ object.price }}</div>
                             <div class="actions-product__row">
                                 <div data-quantity class="actions-product__quantity quantity">
                                     <button data-quantity-plus type="button"
@@ -139,8 +103,8 @@
                                 </div>
                                 <div class="actions-product__buttons">
                                     <a href="" class="actions-product__cart button"><span
-                                            class="_icon-cart">В корзину</span></a>
-                                    <a href="" class="actions-product__button button button_black">Купить в 1 клик</a>
+                                            class="_icon-cart">Add to cart</span></a>
+                                    <a href="" class="actions-product__button button button_black">Buy in 1 click</a>
                                 </div>
                             </div>
                         </div>
@@ -148,25 +112,18 @@
                 </div>
                 <div data-tabs="992" class="product__info product-info">
                     <nav data-tabs-titles class="product-info__navigation">
-                        <button type="submit" class="product-info__title _tab-active">Описание</button>
-                        <button type="submit" class="product-info__title">Характеристики</button>
-                        <button type="submit" class="product-info__title">Отзывы</button>
+                        <button type="submit" class="product-info__title _tab-active">Description</button>
+                        <button type="submit" class="product-info__title">Characteristics</button>
+                        <button type="submit" class="product-info__title">Reviews</button>
                     </nav>
                     <div data-tabs-body class="product-info__content">
                         <div class="product-info__body">
-                            1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio exercitationem,
-                            excepturi similique nulla, voluptatem reprehenderit neque a minima eaque tenetur? Quos fugit
-                            voluptate enim quo sed, minima error molestias!
+                            {{ object.description }}
                         </div>
                         <div class="product-info__body">
-                            2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio exercitationem,
-                            excepturi similique nulla, voluptatem reprehenderit neque a minima eaque tenetur? Quos fugit
-                            voluptate enim quo sed, minima error molestias!
+                            {{ object.characteristics }}
                         </div>
                         <div class="product-info__body">
-                            3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio exercitationem,
-                            excepturi similique nulla, voluptatem reprehenderit neque a minima eaque tenetur? Quos fugit
-                            voluptate enim quo sed, minima error molestias!
                         </div>
                     </div>
                 </div>
