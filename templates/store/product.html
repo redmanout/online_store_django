@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{#{% block page_css %}#}
+{#    <link rel="stylesheet" href="{% static "users/css/style.css" %}">#}
+{#{% endblock %}#}
+
 {% block content %}
     <main class="page page_inner">
         <div class="page__header">
@@ -124,6 +130,20 @@
                             {{ object.characteristics }}
                         </div>
                         <div class="product-info__body">
+                            <form action="" method="post" class="decor"
+                                  autocomplete="off">
+                                {% csrf_token %}
+{#                                <div class="form-left-decoration"></div>#}
+{#                                <div class="form-right-decoration"></div>#}
+{#                                <div class="circle"></div>#}
+{#                                <div class="form-inner">#}
+{#                                    <h3>Review</h3>#}
+{#                                    <input type="text" placeholder="Username">#}
+{#                                    <input type="email" placeholder="Email">#}
+{#                                    <textarea placeholder="Message..." rows="5"></textarea>#}
+{#                                    <input type="submit" value="Send">#}
+{#                                </div>#}
+                            </form>
                         </div>
                     </div>
                 </div>

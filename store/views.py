@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
+from django.views.generic.base import View
+
+from .forms import ReviewForm
 from .models import *
 
 
@@ -164,7 +167,7 @@ class ProductView(DetailView):
 
 def about_us(request):
     list_phone = [
-        '+38(098)980-96-21',
+        '+38(098)980-96-21'
         '+38(098)980-96-22',
         '+38(098)980-96-23',
     ]

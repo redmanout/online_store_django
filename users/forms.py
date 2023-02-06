@@ -61,3 +61,5 @@ class ProfileImageForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ('avatar',)
+
+

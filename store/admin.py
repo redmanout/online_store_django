@@ -22,7 +22,8 @@ class ImagesAdmin(admin.ModelAdmin):
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'category', 'name', 'bestseller', 'new', 'stock', 'characteristics', 'available_status', 'quantity_in_stock', 'price',
+        'id', 'category', 'name', 'bestseller', 'new', 'stock', 'characteristics', 'available_status',
+        'quantity_in_stock', 'price',
         'created_at', 'updated_at', 'slug',)
     list_display_links = ('id', 'name', 'category',)
     search_fields = ('name',)
@@ -109,6 +110,21 @@ class ValueAccessoriesAttributeAdmin(admin.ModelAdmin):
     list_display = ('id', 'product', 'brand', 'type', 'color',)
 
 
+class RatingStarProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'value',)
+    list_display_links = ('id', 'value',)
+
+
+class RatingProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'ip', 'product', 'star',)
+    list_display_links = ('id', 'product', 'star',)
+
+
+class ReviewsProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'product', 'email', 'name', 'text', 'parent',)
+    list_display_links = ('id', 'product', 'email',)
+
+
 # Register your models here.
 admin.site.register(CategoryProduct, CategoryProductAdmin)
 admin.site.register(Product, ProductAdmin)
@@ -157,3 +173,6 @@ admin.site.register(ValueAccessoriesAttribute, ValueAccessoriesAttributeAdmin)
 admin.site.register(AccessoriesBrand)
 admin.site.register(AccessoriesType)
 admin.site.register(AccessoriesColor)
+admin.site.register(RatingStarProduct, RatingStarProductAdmin)
+admin.site.register(RatingProduct, RatingProductAdmin)
+admin.site.register(ReviewsProduct, ReviewsProductAdmin)

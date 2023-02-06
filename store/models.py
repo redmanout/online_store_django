@@ -809,3 +809,69 @@ class Images(models.Model):
     class Meta:
         verbose_name = 'Image'
         verbose_name_plural = 'Images'
+
+
+class RatingStarProduct(models.Model):
+    value = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.value
+
+    class Meta:
+        verbose_name = 'Rating Star'
+        verbose_name_plural = 'Rating Stars'
+
+
+class RatingProduct(models.Model):
+    ip = models.CharField(
+        verbose_name='Ip',
+        max_length=20,
+    )
+    star = models.ForeignKey(
+        RatingStarProduct,
+        on_delete=models.CASCADE,
+        verbose_name='Star',
+    )
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        verbose_name='Product',
+    )
+
+    def __str__(self):
+        return f'{self.star} - {self.product}'
+
+    class Meta:
+        verbose_name = 'Rating'
+        verbose_name_plural = 'Ratings'
+
+
+class ReviewsProduct(models.Model):
+    email = models.EmailField()
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=150,
+    )
+    text = models.TextField(
+        verbose_name='Message',
+        max_length=4000,
+    )
+    parent = models.ForeignKey(
+        'self',
+        verbose_name='Parent',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    product = models.ForeignKey(
+        Product,
+        verbose_name='Product',
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return f'{self.name} - {self.product}'
+
+    class Meta:
+        verbose_name = 'Review'
+        verbose_name_plural = 'Reviews'
