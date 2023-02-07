@@ -1,3 +1,5 @@
+{% load home_tag %}
+
 <header class="header">
     <div class="header__top top-header">
         <div class="top-header__container">
@@ -56,7 +58,8 @@
                             <a href="tel:+38(098)980-96-20" class="phones-header__phone"><span>+38(098)980-96-28</span></a>
                             <button type="button" data-spoller class="phones-header__arrow _icon-arrow-down"></button>
                             <ul class="phones-header__list">
-                                {% for tel in phone_numbers_contacts %}
+                                {% get_phone_contacts as phone_contacts %}
+                                {% for tel in phone_contacts %}
                                     <li><a href="tel:{{ tel }}" class="phones-header__phone">{{ tel }}</a></li>
                                 {% endfor %}
                             </ul>
