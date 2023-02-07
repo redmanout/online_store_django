@@ -1,9 +1,16 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import FormMixin
 from django.views.generic.base import View
 
 from .forms import ReviewForm
-from .models import *
+from .models import BladesProductAttribute, BladesBrand, BladesType, BladesHandleType, BladesComposition, BladesSize, \
+    RubbersProductAttribute, RubbersBrand, RubbersType, RubbersSpeedType, BallsProductAttribute, BallsBrand, BallsRank, \
+    BallsPackage, BackpacksBagsProductAttribute, BackpacksBagsBrand, BackpacksBagsType, BackpacksBagsColor, \
+    NetsProductAttribute, NetsBrand, NetsColor, TablesProductAttribute, TablesBrand, TablesColor, TablesSection, \
+    TablesThickness, RacketsProductAttribute, RacketsBrand, RacketsType, RacketsHandleType, RacketsAverageWeight, \
+    RacketsRubbersThickness, AccessoriesProductAttribute, AccessoriesBrand, AccessoriesType, AccessoriesColor, \
+    CategoryProduct, Product
 
 
 # Create your views here.
@@ -160,9 +167,19 @@ class CategoryList(
         return ctx
 
 
-class ProductView(DetailView):
+class ProductDetailView(FormMixin, DetailView):
     model = Product
     template_name = 'store/product.html'
+    form_class = ReviewForm
+
+    def post(self, request, pk):
+        form = ReviewForm(request.POST)
+        product = Product.objects.get(id=pk)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.product = product
+            form.save()
+        return redirect(product.get_absolute_url())
 
 
 def about_us(request):

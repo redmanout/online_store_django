@@ -867,6 +867,7 @@ class ReviewsProduct(models.Model):
         Product,
         verbose_name='Product',
         on_delete=models.CASCADE,
+        related_name='reviews_product',
     )
 
     def __str__(self):

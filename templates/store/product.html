@@ -130,20 +130,32 @@
                             {{ object.characteristics }}
                         </div>
                         <div class="product-info__body">
-                            <form action="" method="post" class="decor"
+                            <form action="{% url 'add_review' object.id %}" method="post" class="form-review"
                                   autocomplete="off">
                                 {% csrf_token %}
-{#                                <div class="form-left-decoration"></div>#}
-{#                                <div class="form-right-decoration"></div>#}
-{#                                <div class="circle"></div>#}
-{#                                <div class="form-inner">#}
-{#                                    <h3>Review</h3>#}
-{#                                    <input type="text" placeholder="Username">#}
-{#                                    <input type="email" placeholder="Email">#}
-{#                                    <textarea placeholder="Message..." rows="5"></textarea>#}
-{#                                    <input type="submit" value="Send">#}
-{#                                </div>#}
+                                <div class="form-left-decoration"></div>
+                                <div class="form-right-decoration"></div>
+                                <div class="circle"></div>
+                                <div class="form-inner">
+                                    <h3>Review</h3>
+                                    <input type="text" placeholder="Username" name="name">
+                                    <input type="email" placeholder="Email" name="email">
+                                    <textarea placeholder="Message..." rows="4" name="text"></textarea>
+                                    <input type="submit" value="Send">
+                                </div>
                             </form>
+                            <div class="block__comments">
+                                <h2>Reviews</h2>
+                                {% for review in object.reviews_product.all %}
+                                    <div class="product_comments product-comments">
+                                        <img src="" class="product-comments__image" alt="">
+                                        <div class="product-comments__info product-comments-info">
+                                            <h5>{{ review.name }}</h5>
+                                            <p>{{ review.text }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
