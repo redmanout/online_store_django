@@ -84,6 +84,7 @@
             <nav class="catalog-header__menu menu-catalog">
                 <button type="button" class="menu-catalog__back _icon-arrow-left">Back</button>
                 <ul class="menu-catalog__list">
+                    {% get_categories as categories_product %}
                     {% for category in categories_product %}
                         <li class="menu-catalog__item">
                             <button data-parent="{{ category.name }}"
@@ -95,292 +96,328 @@
                     <button type="button" class="sub-menu-catalog__back _icon-arrow-left">Назад</button>
                     <div class="sub-menu-catalog__container">
                         <div hidden data-submenu="Blades" class="sub-menu-catalog__block">
-                            {% for attribute in view.get_attribute_blades %}
+                            {% get_attribute_blades as attribute_blades %}
+                            {% for attribute in attribute_blades %}
                                 <div class="sub-menu-catalog__category">
                                     <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
-                                {% for brand in view.get_brand_blades %}
+                                {% get_brand_blades as brand_blades %}
+                                {% for brand in brand_blades %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for type in view.get_type_blades %}
+                                {% get_type_blades as type_blades %}
+                                {% for type in type_blades %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for handle_type in view.get_handle_type_blades %}
+                                {% get_handle_type_blades as handle_type_blades %}
+                                {% for handle_type in handle_type_blades %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ handle_type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for composition in view.get_composition_blades %}
+                                {% get_composition_blades as composition_blades %}
+                                {% for composition in composition_blades %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ composition.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for size in view.get_size_blades %}
+                                {% get_size_blades as size_blades %}
+                                {% for size in size_blades %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ size.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in view.get_attribute_blades %}
+                            {% for el in attribute_blades %}
                                 <div class="sub-menu-catalog__footer">
                                     <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
                                 </div>
                             {% endfor %}
                         </div>
                         <div hidden data-submenu="Rubbers" class="sub-menu-catalog__block">
-                            {% for attribute in view.get_attribute_rubbers %}
+                            {% get_attribute_rubbers as attribute_rubbers %}
+                            {% for attribute in attribute_rubbers %}
                                 <div class="sub-menu-catalog__category">
                                     <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
-                                {% for brand in view.get_brand_rubbers %}
+                                {% get_brand_rubbers as brand_rubbers %}
+                                {% for brand in brand_rubbers %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for type in view.get_type_rubbers %}
+                                {% get_type_rubbers as type_rubbers %}
+                                {% for type in type_rubbers %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for speed_type in view.get_speed_type_rubbers %}
+                                {% get_speed_type_rubbers as speed_type_rubbers %}
+                                {% for speed_type in speed_type_rubbers %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ speed_type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in view.get_attribute_rubbers %}
+                            {% for el in attribute_rubbers %}
                                 <div class="sub-menu-catalog__footer">
                                     <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
                                 </div>
                             {% endfor %}
                         </div>
                         <div hidden data-submenu="Balls" class="sub-menu-catalog__block">
-                            {% for attribute in view.get_attribute_balls %}
+                            {% get_attribute_balls as attribute_balls %}
+                            {% for attribute in attribute_balls %}
                                 <div class="sub-menu-catalog__category">
                                     <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
-                                {% for brand in view.get_brand_balls %}
+                                {% get_brand_balls as brand_balls %}
+                                {% for brand in brand_balls %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for rank in view.get_rank_balls %}
+                                {% get_rank_balls as rank_balls %}
+                                {% for rank in rank_balls %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ rank.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for package in view.get_package_balls %}
+                                {% get_package_balls as package_balls %}
+                                {% for package in package_balls %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ package.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in view.get_attribute_balls %}
+                            {% for el in attribute_balls %}
                                 <div class="sub-menu-catalog__footer">
                                     <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
                                 </div>
                             {% endfor %}
                         </div>
                         <div hidden data-submenu="Backpacks and bags" class="sub-menu-catalog__block">
-                            {% for attribute in view.get_attribute_backpacksbags %}
+                            {% get_attribute_backpacksbags as attribute_backpacksbags %}
+                            {% for attribute in attribute_backpacksbags %}
                                 <div class="sub-menu-catalog__category">
                                     <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
-                                {% for brand in view.get_brand_backpacksbags %}
+                                {% get_brand_backpacksbags as brand_backpacksbags %}
+                                {% for brand in brand_backpacksbags %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for type in view.get_type_backpacksbags %}
+                                {% get_type_backpacksbags as type_backpacksbags %}
+                                {% for type in type_backpacksbags %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for color in view.get_color_backpacksbags %}
+                                {% get_color_backpacksbags as color_backpacksbags %}
+                                {% for color in color_backpacksbags %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ color.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in view.get_attribute_backpacksbags %}
+                            {% for el in attribute_backpacksbags %}
                                 <div class="sub-menu-catalog__footer">
                                     <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
                                 </div>
                             {% endfor %}
                         </div>
                         <div hidden data-submenu="Tennis nets" class="sub-menu-catalog__block">
-                            {% for attribute in view.get_attribute_nets %}
+                            {% get_attribute_nets as attribute_nets %}
+                            {% for attribute in attribute_nets %}
                                 <div class="sub-menu-catalog__category">
                                     <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
-                                {% for brand in view.get_brand_nets %}
+                                {% get_brand_nets as brand_nets %}
+                                {% for brand in brand_nets %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for color in view.get_color_nets %}
+                                {% get_color_nets as color_nets %}
+                                {% for color in color_nets %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ color.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in view.get_attribute_nets %}
+                            {% for el in attribute_nets %}
                                 <div class="sub-menu-catalog__footer">
                                     <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
                                 </div>
                             {% endfor %}
                         </div>
                         <div hidden data-submenu="Tables" class="sub-menu-catalog__block">
-                            {% for attribute in view.get_attribute_tables %}
+                            {% get_attribute_tables as attribute_tables %}
+                            {% for attribute in attribute_tables %}
                                 <div class="sub-menu-catalog__category">
                                     <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
-                                {% for brand in view.get_brand_tables %}
+                                {% get_brand_tables as brand_tables %}
+                                {% for brand in brand_tables %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for section in view.get_section_tables %}
+                                {% get_section_tables as section_tables %}
+                                {% for section in section_tables %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ section.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for color in view.get_color_tables %}
+                                {% get_color_tables as color_tables %}
+                                {% for color in color_tables %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ color.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for thickness in view.get_thickness_tables %}
+                                {% get_thickness_tables as thickness_tables %}
+                                {% for thickness in thickness_tables %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ thickness.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in view.get_attribute_tables %}
+                            {% for el in attribute_tables %}
                                 <div class="sub-menu-catalog__footer">
                                     <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
                                 </div>
                             {% endfor %}
                         </div>
                         <div hidden data-submenu="Made rackets" class="sub-menu-catalog__block">
-                            {% for attribute in view.get_attribute_rackets %}
+                            {% get_attribute_rackets as attribute_rackets %}
+                            {% for attribute in attribute_rackets %}
                                 <div class="sub-menu-catalog__category">
                                     <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
-                                {% for brand in view.get_brand_rackets %}
+                                {% get_brand_rackets as brand_rackets %}
+                                {% for brand in brand_rackets %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for type in view.get_type_rackets %}
+                                {% get_type_rackets as type_rackets %}
+                                {% for type in type_rackets %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for handle_type in view.get_handle_type_rackets %}
+                                {% get_handle_type_rackets as handle_type_rackets %}
+                                {% for handle_type in handle_type_rackets %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ handle_type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for average_weight in view.get_average_weight_rackets %}
+                                {% get_average_weight_rackets as average_weight_rackets %}
+                                {% for average_weight in average_weight_rackets %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ average_weight.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for rubbers_thickness in view.get_rubbers_thickness_rackets %}
+                                {% get_rubbers_thickness_rackets as rubbers_thickness_rackets %}
+                                {% for rubbers_thickness in rubbers_thickness_rackets %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ rubbers_thickness.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in view.get_attribute_rackets %}
+                            {% for el in attribute_rackets %}
                                 <div class="sub-menu-catalog__footer">
                                     <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
                                 </div>
                             {% endfor %}
                         </div>
                         <div hidden data-submenu="Accessories" class="sub-menu-catalog__block">
-                            {% for attribute in view.get_attribute_accessories %}
+                            {% get_attribute_accessories as attribute_accessories %}
+                            {% for attribute in attribute_accessories %}
                                 <div class="sub-menu-catalog__category">
                                     <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
-                                {% for brand in view.get_brand_accessories %}
+                                {% get_brand_accessories as brand_accessories %}
+                                {% for brand in brand_accessories %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for type in view.get_type_accessories %}
+                                {% get_type_accessories as type_accessories %}
+                                {% for type in type_accessories %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
-                                {% for color in view.get_color_accessories %}
+                                {% get_color_accessories as color_accessories %}
+                                {% for color in color_accessories %}
                                     <li class="sub-menu-catalog__item"><a href=""
                                                                           class="sub-menu-catalog__link">{{ color.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in view.get_attribute_accessories %}
+                            {% for el in attribute_accessories %}
                                 <div class="sub-menu-catalog__footer">
                                     <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
                                 </div>
