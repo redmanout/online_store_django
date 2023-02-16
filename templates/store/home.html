@@ -219,10 +219,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="rating__value">3.6</div>
-                                                <div class="rating__info">10 reviews</div>
+                                                <div class="rating__info"><a
+                                                        href="{{ el.get_absolute_url }}">Reviews {{ el.reviews_product.count }}</a>
+                                                </div>
                                             </div>
                                             <div class="product-card__footer">
-                                                <div class="product-card__price">{{ el.price }}</div>
+                                                <div class="product-card__price">{{ el.price }} UAH</div>
                                                 <a href="" class="product-card__compare _icon-scales"></a>
                                                 <a href="" class="product-card__heart _icon-heart"></a>
                                             </div>
@@ -285,10 +287,12 @@
                                                         </div>
                                                     </div>
                                                     <div class="rating__value">3.6</div>
-                                                    <div class="rating__info">10 отзывов</div>
+                                                    <div class="rating__info"><a
+                                                            href="{{ el.get_absolute_url }}">Reviews {{ el.reviews_product.count }}</a>
+                                                    </div>
                                                 </div>
                                                 <div class="product-card__footer">
-                                                    <div class="product-card__price">{{ el.price }}</div>
+                                                    <div class="product-card__price">{{ el.price }} UAH</div>
                                                     <button href="" class="product-card__compare _icon-scales"></button>
                                                     <button href="" class="product-card__heart _icon-heart"></button>
                                                 </div>
@@ -347,10 +351,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="rating__value">3.6</div>
-                                                <div class="rating__info">10 отзывов</div>
+                                                <div class="rating__info"><a
+                                                        href="{{ el.get_absolute_url }}">Reviews {{ el.reviews_product.count }}</a>
+                                                </div>
                                             </div>
                                             <div class="product-card__footer">
-                                                <div class="product-card__price">{{ el.price }}</div>
+                                                <div class="product-card__price">{{ el.price }} UAH</div>
                                                 <a href="" class="product-card__compare _icon-scales"></a>
                                                 <a href="" class="product-card__heart _icon-heart"></a>
                                             </div>
@@ -358,6 +364,7 @@
                                                     class="_icon-cart">Add to cart</span></button>
                                         </div>
                                     </article>
+
                                 </div>
                             {% endfor %}
                         </div>

@@ -815,9 +815,10 @@ class RatingStarProduct(models.Model):
     value = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return self.value
+        return f'{self.value}'
 
     class Meta:
+        ordering = ['-value']
         verbose_name = 'Rating Star'
         verbose_name_plural = 'Rating Stars'
 

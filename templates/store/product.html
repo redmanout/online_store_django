@@ -2,9 +2,6 @@
 
 {% load static %}
 
-{#{% block page_css %}#}
-{#    <link rel="stylesheet" href="{% static "users/css/style.css" %}">#}
-{#{% endblock %}#}
 
 {% block content %}
     <main class="page page_inner">
@@ -73,16 +70,18 @@
                                 <div class="rating__value">3.6</div>
                             </div>
                         </div>
-                        <div class="body-product__table table-product">
-                            <div class="table-product__label">Артикул:</div>
-                            <div class="table-product__value">AF0000001952</div>
-                            <div class="table-product__label">Торговая марка:</div>
-                            <div class="table-product__value">WUESTHOF (Германия)</div>
-                            <div class="table-product__label">Серия:</div>
-                            <div class="table-product__value">Ножи серии Classic Ikon</div>
-                            <div class="table-product__label">Бонусные баллы:</div>
-                            <div class="table-product__value">38</div>
-                        </div>
+{#                        {% if category_blades %}#}
+                            <div class="body-product__table table-product">
+                                <div class="table-product__label">Артикул:</div>
+                                <div class="table-product__value">AF0000001952</div>
+                                <div class="table-product__label">Торговая марка:</div>
+                                <div class="table-product__value">WUESTHOF (Германия)</div>
+                                <div class="table-product__label">Серия:</div>
+                                <div class="table-product__value">Ножи серии Classic Ikon</div>
+                                <div class="table-product__label">Бонусные баллы:</div>
+                                <div class="table-product__value">38</div>
+                            </div>
+{#                        {% endif %}#}
                         <div class="body-product__options options-product">
                             <div class="options-product__label">Сталь</div>
                             <div class="options-product__value">
@@ -94,8 +93,9 @@
                                 </select>
                             </div>
                         </div>
+
                         <div class="body-product__actions actions-product">
-                            <div class="actions-product__price">{{ object.price }}</div>
+                            <div class="actions-product__price">{{ object.price }} UAH</div>
                             <div class="actions-product__row">
                                 <div data-quantity class="actions-product__quantity quantity">
                                     <button data-quantity-plus type="button"

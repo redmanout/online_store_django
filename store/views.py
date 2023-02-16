@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormMixin
 from .forms import ReviewForm
 from .models import CategoryProduct, Product
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -34,6 +35,20 @@ class ProductDetailView(FormMixin, DetailView):
             form.product = product
             form.save()
         return redirect(product.get_absolute_url())
+
+
+class SearchView(ListView):
+    template_name = 'store/search.html'
+    paginate_by = 2
+    context_object_name = 'products'
+
+    def get_queryset(self):
+        return Product.objects.filter(name__icontains=self.request.GET.get('search'))
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['search'] = self.request.GET.get('search')
+        return context
 
 
 def about_us(request):
