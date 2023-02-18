@@ -39,7 +39,7 @@ class ImagesAdmin(admin.ModelAdmin):
 class ReviewProductInline(admin.TabularInline):
     model = ReviewsProduct
     extra = 1
-    readonly_fields = ('name', 'email',)
+    readonly_fields = ('name', 'product', 'user', 'text', 'ip',)
 
 
 @admin.register(Product)
@@ -64,9 +64,9 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(ReviewsProduct)
 class ReviewsProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'product', 'email', 'name', 'text', 'parent',)
-    list_display_links = ('id', 'product', 'email',)
-    readonly_fields = ('name', 'email',)
+    list_display = ('id', 'product', 'user', 'name', 'text',)
+    list_display_links = ('id', 'product',)
+    readonly_fields = ('name', 'product', 'user', 'text', 'ip',)
 
 
 @admin.register(BladesProductAttribute)

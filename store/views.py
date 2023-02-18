@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormMixin
 from .forms import ReviewForm
 from .models import CategoryProduct, Product
+from django.contrib import messages
 from django.core.paginator import Paginator
 
 
@@ -32,8 +33,12 @@ class ProductDetailView(FormMixin, DetailView):
         product = Product.objects.get(id=pk)
         if form.is_valid():
             form = form.save(commit=False)
+            form.ip = request.META.get('REMOTE_ADDR')
             form.product = product
+            current_user = request.user
+            form.user_id = current_user.id
             form.save()
+            messages.success(request, 'Your review has been sent')
         return redirect(product.get_absolute_url())
 
 

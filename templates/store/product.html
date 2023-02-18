@@ -70,18 +70,18 @@
                                 <div class="rating__value">3.6</div>
                             </div>
                         </div>
-{#                        {% if category_blades %}#}
-                            <div class="body-product__table table-product">
-                                <div class="table-product__label">Артикул:</div>
-                                <div class="table-product__value">AF0000001952</div>
-                                <div class="table-product__label">Торговая марка:</div>
-                                <div class="table-product__value">WUESTHOF (Германия)</div>
-                                <div class="table-product__label">Серия:</div>
-                                <div class="table-product__value">Ножи серии Classic Ikon</div>
-                                <div class="table-product__label">Бонусные баллы:</div>
-                                <div class="table-product__value">38</div>
-                            </div>
-{#                        {% endif %}#}
+                        {#                        {% if category_blades %}#}
+                        <div class="body-product__table table-product">
+                            <div class="table-product__label">Артикул:</div>
+                            <div class="table-product__value">AF0000001952</div>
+                            <div class="table-product__label">Торговая марка:</div>
+                            <div class="table-product__value">WUESTHOF (Германия)</div>
+                            <div class="table-product__label">Серия:</div>
+                            <div class="table-product__value">Ножи серии Classic Ikon</div>
+                            <div class="table-product__label">Бонусные баллы:</div>
+                            <div class="table-product__value">38</div>
+                        </div>
+                        {#                        {% endif %}#}
                         <div class="body-product__options options-product">
                             <div class="options-product__label">Сталь</div>
                             <div class="options-product__value">
@@ -139,9 +139,12 @@
                                 <div class="form-inner">
                                     <h3>Review</h3>
                                     <input type="text" placeholder="Username" name="name">
-                                    <input type="email" placeholder="Email" name="email">
                                     <textarea placeholder="Message..." rows="4" name="text"></textarea>
-                                    <input type="submit" value="Send">
+                                    {% if user.id is not None %}
+                                        <input type="submit" value="Send">
+                                    {% else %}
+                                        You must be logged in to submit a review
+                                    {% endif %}
                                 </div>
                             </form>
                             <div class="block__comments">
@@ -151,6 +154,8 @@
                                         <img src="" class="product-comments__image" alt="">
                                         <div class="product-comments__info product-comments-info">
                                             <h5>{{ review.name }}</h5>
+                                            <p>{{ review.create_at }}</p>
+                                            <br>
                                             <p>{{ review.text }}</p>
                                         </div>
                                     </div>

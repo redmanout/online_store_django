@@ -2,6 +2,8 @@ from django.db import models
 from autoslug import AutoSlugField
 from django.urls import reverse
 
+from users.models import CustomUser
+
 
 # Create your models here.
 
@@ -848,7 +850,22 @@ class RatingProduct(models.Model):
 
 
 class ReviewsProduct(models.Model):
-    email = models.EmailField()
+    STATUS = (
+        ('New', 'New'),
+        ('True', 'True'),
+        ('False', 'False'),
+    )
+    product = models.ForeignKey(
+        Product,
+        verbose_name='Product',
+        on_delete=models.CASCADE,
+        related_name='reviews_product',
+    )
+    user = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        default=None,
+    )
     name = models.CharField(
         verbose_name='Name',
         max_length=150,
@@ -857,19 +874,19 @@ class ReviewsProduct(models.Model):
         verbose_name='Message',
         max_length=4000,
     )
-    parent = models.ForeignKey(
-        'self',
-        verbose_name='Parent',
-        on_delete=models.SET_NULL,
+    ip = models.CharField(
+        max_length=25,
         blank=True,
-        null=True,
     )
-    product = models.ForeignKey(
-        Product,
-        verbose_name='Product',
-        on_delete=models.CASCADE,
-        related_name='reviews_product',
+    status = models.CharField(
+        max_length=8,
+        choices=STATUS,
+        default='New',
     )
+    create_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+    update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f'{self.name} - {self.product}'

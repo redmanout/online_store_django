@@ -4269,6 +4269,10 @@ body::after {
     font-size: 14px;
 }
 
+.form-inner input[type="submit"]:hover {
+    box-shadow: 0 0.25rem 1.5625rem rgba(243, 166, 13, 0.43);
+}
+
 .form-inner textarea {
     resize: none;
 }
@@ -4296,4 +4300,21 @@ body::after {
 .product-comments-info h5 {
     margin-bottom: 5px;
 }
+
+.product-comments-info p {
+    margin-bottom: 5px;
+}
+
+.messages-success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #a9dc96;
+    width: 400px;
+    border-radius: 10px;
+}
+
+
 
