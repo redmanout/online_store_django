@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormMixin
 from .forms import ReviewForm
-from .models import CategoryProduct, Product
 from django.contrib import messages
 from django.core.paginator import Paginator
+from .models import CategoryProduct, Product, BladesType, RubbersType, BallsRank, BackpacksBagsType, NetsBrand, \
+    RacketsType, TablesSection, AccessoriesType
 
 
 # Create your views here.
@@ -20,6 +21,14 @@ class CategoryList(ListView):
         ctx['product_bestseller'] = Product.objects.filter(bestseller=True)
         ctx['product_new'] = Product.objects.filter(new=True)
         ctx['product_stock'] = Product.objects.filter(stock=True)
+        ctx['blades_type'] = BladesType.objects.all()
+        ctx['rubbers_type'] = RubbersType.objects.all()
+        ctx['balls_rank'] = BallsRank.objects.all()
+        ctx['backpacks_bags_type'] = BackpacksBagsType.objects.all()
+        ctx['nets_brand'] = NetsBrand.objects.all()
+        ctx['rackets_type'] = RacketsType.objects.all()
+        ctx['tables_section'] = TablesSection.objects.all()
+        ctx['accessories_type'] = AccessoriesType.objects.all()
         return ctx
 
 
@@ -41,6 +50,11 @@ class ProductDetailView(FormMixin, DetailView):
             messages.success(request, 'Your review has been sent')
         return redirect(product.get_absolute_url())
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+
+        return ctx
+
 
 class SearchView(ListView):
     template_name = 'store/search.html'
@@ -54,21 +68,3 @@ class SearchView(ListView):
         context = super().get_context_data(*args, **kwargs)
         context['search'] = self.request.GET.get('search')
         return context
-
-
-def about_us(request):
-    data = {
-    }
-    return render(request, 'store/about.html', context=data)
-
-
-def ship_pay(request):
-    data = {
-    }
-    return render(request, 'store/ship_pay.html', context=data)
-
-
-def contacts(request):
-    data = {
-    }
-    return render(request, 'store/contacts.html', context=data)

@@ -274,6 +274,7 @@ class ValueRubbersAttribute(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
+        related_name='rubber_attribute',
     )
     brand = models.ForeignKey(
         RubbersBrand,
@@ -352,6 +353,7 @@ class ValueBallsAttribute(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
+        related_name='ball_attribute',
     )
     brand = models.ForeignKey(
         BallsBrand,
@@ -430,6 +432,7 @@ class ValueBackpacksBagsAttribute(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
+        related_name='bag_attribute',
     )
     brand = models.ForeignKey(
         BackpacksBagsBrand,
@@ -498,6 +501,7 @@ class ValueNetsAttribute(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
+        related_name='net_attribute',
     )
     brand = models.ForeignKey(
         NetsBrand,
@@ -575,6 +579,7 @@ class ValueTablesAttribute(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
+        related_name='table_attribute',
     )
     brand = models.ForeignKey(
         TablesBrand,
@@ -669,6 +674,7 @@ class ValueRacketsAttribute(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
+        related_name='racket_attribute',
     )
     brand = models.ForeignKey(
         RacketsBrand,
@@ -757,6 +763,7 @@ class ValueAccessoriesAttribute(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
+        related_name='accessory_attribute',
     )
     brand = models.ForeignKey(
         AccessoriesBrand,

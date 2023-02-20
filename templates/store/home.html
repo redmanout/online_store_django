@@ -51,128 +51,9 @@
         </section>
         <section class="page__catalog-cards catalog-cards">
             <div class="catalog-cards__container">
-                <div class="catalog-cards__item item-catalog-cards">
-                    <div class="item-catalog-cards__body">
-                        <h3 class="item-catalog-cards__title">
-                            <a href=""
-                               class="item-catalog-cards__link-title">Blades</a>
-                        </h3>
-                        <ul class="item-catalog-cards__list">
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">DEF</a>
-                            </li>
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">ALL</a>
-                            </li>
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">OFF</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div href="" class="item-catalog-cards__image">
-                        <picture>
-                            <source srcset="/media/main-block/catalog_images/base.webp" type="image/webp">
-                            <img src="/media/main-block/catalog_images/base.jpeg" alt="Картинка"></picture>
-                    </div>
-                </div>
-                <div class="catalog-cards__item item-catalog-cards">
-                    <div class="item-catalog-cards__body">
-                        <h3 class="item-catalog-cards__title">
-                            <a href="" class="item-catalog-cards__link-title">Rubbers</a>
-                        </h3>
-                        <ul class="item-catalog-cards__list">
-                            <li class="item-catalog-cards__item"><a href=""
-                                                                    class="item-catalog-cards__link">Inverted</a>
-                            </li>
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">Sticky</a>
-                            </li>
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">Pips</a>
-                            </li>
-                        </ul>
-                    </div>
 
-                    <div href="" class="item-catalog-cards__image">
-                        <picture>
-                            <source srcset="/media/main-block/catalog_images/rubber.webp" type="image/webp">
-                            <img src="/media/main-block/catalog_images/rubber.jpeg" alt="Картинка"></picture>
-                    </div>
-                </div>
-                <div class="catalog-cards__item item-catalog-cards">
-                    <div class="item-catalog-cards__body">
-                        <h3 class="item-catalog-cards__title">
-                            <a href="" class="item-catalog-cards__link-title">Tables</a>
-                        </h3>
-                        <ul class="item-catalog-cards__list">
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">Indoor</a>
-                            </li>
-                            <li class="item-catalog-cards__item"><a href=""
-                                                                    class="item-catalog-cards__link">Outdoor</a>
-                            </li>
-                        </ul>
-                    </div>
+                {% include "include/attr_home_catalog_card.html" %}
 
-                    <div href="" class="item-catalog-cards__image">
-                        <picture>
-                            <source srcset="/media/main-block/catalog_images/table.webp" type="image/webp">
-                            <img src="/media/main-block/catalog_images/table.jpeg" alt="Картинка"></picture>
-                    </div>
-                </div>
-                <div class="catalog-cards__item item-catalog-cards">
-                    <div class="item-catalog-cards__body">
-                        <h3 class="item-catalog-cards__title">
-                            <a href="" class="item-catalog-cards__link-title">Balls</a>
-                        </h3>
-                        <ul class="item-catalog-cards__list">
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">3 Star 40+
-                            </a></li>
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">Training
-                                40+</a></li>
-                        </ul>
-                    </div>
-
-                    <div href="" class="item-catalog-cards__image">
-                        <picture>
-                            <source srcset="/media/main-block/catalog_images/ball.webp" type="image/webp">
-                            <img src="/media/main-block/catalog_images/ball.jpeg" alt="Картинка"></picture>
-                    </div>
-                </div>
-                <div class="catalog-cards__item item-catalog-cards">
-                    <div class="item-catalog-cards__body">
-                        <h3 class="item-catalog-cards__title">
-                            <a href="" class="item-catalog-cards__link-title">Backpacks and bags</a>
-                        </h3>
-                        <ul class="item-catalog-cards__list">
-                            <li class="item-catalog-cards__item"><a href=""
-                                                                    class="item-catalog-cards__link">Backpacks</a>
-                            </li>
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">Bags</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div href="" class="item-catalog-cards__image">
-                        <picture>
-                            <source srcset="/media/main-block/catalog_images/bag.webp" type="image/webp">
-                            <img src="/media/main-block/catalog_images/bag.jpeg" alt="Картинка"></picture>
-                    </div>
-                </div>
-                <div class="catalog-cards__item item-catalog-cards">
-                    <div class="item-catalog-cards__body">
-                        <h3 class="item-catalog-cards__title">
-                            <a href="" class="item-catalog-cards__link-title">Accessories</a>
-                        </h3>
-                        <ul class="item-catalog-cards__list">
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">Edge
-                                Tape</a></li>
-                            <li class="item-catalog-cards__item"><a href="" class="item-catalog-cards__link">Wrap on the
-                                handle</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div href="" class="item-catalog-cards__image">
-                        <picture>
-                            <source srcset="/media/main-block/catalog_images/tape.webp" type="image/webp">
-                            <img src="/media/main-block/catalog_images/tape.jpeg" alt="Картинка"></picture>
-                    </div>
-                </div>
             </div>
         </section>
         <section class="page__hits-products hits-products">
@@ -198,10 +79,6 @@
                                                 <a href="{{ el.get_absolute_url }}"
                                                    class="product-card__link-title">{{ el.name }}</a>
                                             </h4>
-                                            <div class="product-card__info info-product-card">
-                                                <div class="info-product-card__size">{{ el.blade_attribute.get.size }}</div>
-                                                <div class="info-product-card__materials">{{ el.blade_attribute.get.composition }}</div>
-                                            </div>
                                             <div class="product-card__rating rating rating_set">
                                                 <div class="rating__body">
                                                     <div class="rating__active"></div>
@@ -266,10 +143,6 @@
                                                 <h4 class="product-card__title">
                                                     <a href="" class="product-card__link-title">{{ el.name }}</a>
                                                 </h4>
-                                                <div class="product-card__info info-product-card">
-                                                    <div class="info-product-card__size">145х90</div>
-                                                    <div class="info-product-card__materials">Дерево</div>
-                                                </div>
                                                 <div class="product-card__rating rating rating_set">
                                                     <div class="rating__body">
                                                         <div class="rating__active"></div>
@@ -330,10 +203,6 @@
                                             <h4 class="product-card__title">
                                                 <a href="" class="product-card__link-title">{{ el.name }}</a>
                                             </h4>
-                                            <div class="product-card__info info-product-card">
-                                                <div class="info-product-card__size">145х90</div>
-                                                <div class="info-product-card__materials">Дерево</div>
-                                            </div>
                                             <div class="product-card__rating rating rating_set">
                                                 <div class="rating__body">
                                                     <div class="rating__active"></div>

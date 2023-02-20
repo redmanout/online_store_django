@@ -1147,6 +1147,7 @@ body::after {
     transition: box-shadow 0.3s ease 0s;
     transition: box-shadow 0.3s ease 0s, -webkit-box-shadow 0.3s ease 0s;
     position: relative;
+    transition: all .2s ease 0s;
 }
 
 .product-card__sale {
@@ -1317,6 +1318,10 @@ body::after {
 
 .info-product-card__materials {
     text-align: right;
+}
+
+.product-card:hover {
+    transform: scale(1.04);
 }
 
 .dotts {
@@ -4297,6 +4302,7 @@ body::after {
     border-radius: 10px;
     padding: 20px;
 }
+
 .product-comments-info h5 {
     margin-bottom: 5px;
 }

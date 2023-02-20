@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'debug_toolbar',
     'users.apps.UsersConfig',
     'store.apps.StoreConfig',
@@ -49,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "django.contrib.flatpages.middleware.FlatpageFallbackMiddleware",
 ]
 
 ROOT_URLCONF = 'store_django.urls'
@@ -144,3 +147,5 @@ LOGIN_REDIRECT_URL = 'profile'
 LOGIN_URL = 'login'
 
 INTERNAL_IPS = ["127.0.0.1"]
+
+SITE_ID = 1

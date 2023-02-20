@@ -1,0 +1,88 @@
+{% if object.category.name == 'Blades' %}
+    <div class="body-product__table table-product">
+        <div class="table-product__label">Brand:</div>
+        <div class="table-product__value">{{ object.blade_attribute.get.brand }}</div>
+        <div class="table-product__label">Type:</div>
+        <div class="table-product__value">{{ object.blade_attribute.get.type }}</div>
+        <div class="table-product__label">Handle type:</div>
+        <div class="table-product__value">{{ object.blade_attribute.get.handle_type }}</div>
+        <div class="table-product__label">Composition:</div>
+        <div class="table-product__value">{{ object.blade_attribute.get.composition }}</div>
+        <div class="table-product__label">Size:</div>
+        <div class="table-product__value">{{ object.blade_attribute.get.size }}</div>
+    </div>
+{% endif %}
+{% if object.category.name == 'Rubbers' %}
+    <div class="body-product__table table-product">
+        <div class="table-product__label">Brand:</div>
+        <div class="table-product__value">{{ object.rubber_attribute.get.brand }}</div>
+        <div class="table-product__label">Type:</div>
+        <div class="table-product__value">{{ object.rubber_attribute.get.type }}</div>
+        <div class="table-product__label">Speed type:</div>
+        <div class="table-product__value">{{ object.rubber_attribute.get.speed_type }}</div>
+    </div>
+{% endif %}
+{% if object.category.name == 'Balls' %}
+    <div class="body-product__table table-product">
+        <div class="table-product__label">Brand:</div>
+        <div class="table-product__value">{{ object.ball_attribute.get.brand }}</div>
+        <div class="table-product__label">Rank:</div>
+        <div class="table-product__value">{{ object.ball_attribute.get.rank }}</div>
+        <div class="table-product__label">Package:</div>
+        <div class="table-product__value">{{ object.ball_attribute.get.package }}</div>
+    </div>
+{% endif %}
+{% if object.category.name == 'Backpacks and bags' %}
+    <div class="body-product__table table-product">
+        <div class="table-product__label">Brand:</div>
+        <div class="table-product__value">{{ object.bag_attribute.get.brand }}</div>
+        <div class="table-product__label">Type:</div>
+        <div class="table-product__value">{{ object.bag_attribute.get.type }}</div>
+        <div class="table-product__label">Color:</div>
+        <div class="table-product__value">{{ object.bag_attribute.get.color }}</div>
+    </div>
+{% endif %}
+{% if object.category.name == 'Tennis nets' %}
+    <div class="body-product__table table-product">
+        <div class="table-product__label">Brand:</div>
+        <div class="table-product__value">{{ object.net_attribute.get.brand }}</div>
+        <div class="table-product__label">Color:</div>
+        <div class="table-product__value">{{ object.net_attribute.get.color }}</div>
+    </div>
+{% endif %}
+{% if object.category.name == 'Made rackets' %}
+    <div class="body-product__table table-product">
+        <div class="table-product__label">Brand:</div>
+        <div class="table-product__value">{{ object.racket_attribute.get.brand }}</div>
+        <div class="table-product__label">Type:</div>
+        <div class="table-product__value">{{ object.racket_attribute.get.type }}</div>
+        <div class="table-product__label">Handle type:</div>
+        <div class="table-product__value">{{ object.racket_attribute.get.handle_type }}</div>
+        <div class="table-product__label">Average weight:</div>
+        <div class="table-product__value">{{ object.racket_attribute.get.average_weight }}</div>
+        <div class="table-product__label">Rubbers Thickness:</div>
+        <div class="table-product__value">{{ object.racket_attribute.get.rubbers_thickness }}</div>
+    </div>
+{% endif %}
+{% if object.category.name == 'Accessories' %}
+    <div class="body-product__table table-product">
+        <div class="table-product__label">Brand:</div>
+        <div class="table-product__value">{{ object.accessory_attribute.get.brand }}</div>
+        <div class="table-product__label">Type:</div>
+        <div class="table-product__value">{{ object.accessory_attribute.get.type }}</div>
+        <div class="table-product__label">Color:</div>
+        <div class="table-product__value">{{ object.accessory_attribute.get.color }}</div>
+    </div>
+{% endif %}
+{% if object.category.name == 'Tables' %}
+    <div class="body-product__table table-product">
+        <div class="table-product__label">Brand:</div>
+        <div class="table-product__value">{{ object.table_attribute.get.brand }}</div>
+        <div class="table-product__label">Section:</div>
+        <div class="table-product__value">{{ object.table_attribute.get.section }}</div>
+        <div class="table-product__label">Color:</div>
+        <div class="table-product__value">{{ object.table_attribute.get.color }}</div>
+        <div class="table-product__label">Thickness:</div>
+        <div class="table-product__value">{{ object.table_attribute.get.thickness }}</div>
+    </div>
+{% endif %}

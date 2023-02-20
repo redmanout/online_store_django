@@ -69,31 +69,8 @@
                                 </div>
                                 <div class="rating__value">3.6</div>
                             </div>
+                            {% include 'include/attr_product.html' %}
                         </div>
-                        {#                        {% if category_blades %}#}
-                        <div class="body-product__table table-product">
-                            <div class="table-product__label">Артикул:</div>
-                            <div class="table-product__value">AF0000001952</div>
-                            <div class="table-product__label">Торговая марка:</div>
-                            <div class="table-product__value">WUESTHOF (Германия)</div>
-                            <div class="table-product__label">Серия:</div>
-                            <div class="table-product__value">Ножи серии Classic Ikon</div>
-                            <div class="table-product__label">Бонусные баллы:</div>
-                            <div class="table-product__value">38</div>
-                        </div>
-                        {#                        {% endif %}#}
-                        <div class="body-product__options options-product">
-                            <div class="options-product__label">Сталь</div>
-                            <div class="options-product__value">
-                                <select name="form[]" class="form">
-                                    <option value="1" selected>Пункт №1</option>
-                                    <option value="2">Пункт №2</option>
-                                    <option value="3">Пункт №3</option>
-                                    <option value="4">Пункт №4</option>
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="body-product__actions actions-product">
                             <div class="actions-product__price">{{ object.price }} UAH</div>
                             <div class="actions-product__row">

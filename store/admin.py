@@ -103,6 +103,7 @@ class BallsProductAttributeAdmin(admin.ModelAdmin):
 @admin.register(ValueBallsAttribute)
 class ValueBallsAttributeAdmin(admin.ModelAdmin):
     list_display = ('id', 'product', 'brand', 'rank', 'package',)
+    list_display_links = ('id', 'product',)
 
 
 @admin.register(BackpacksBagsProductAttribute)

@@ -1,0 +1,87 @@
+{% for category in categories_product %}
+    <div class="catalog-cards__item item-catalog-cards">
+        <div class="item-catalog-cards__body">
+            <h3 class="item-catalog-cards__title">
+                <a href=""
+                   class="item-catalog-cards__link-title">{{ category.name }}</a>
+            </h3>
+            {% if category.name == 'Blades' %}
+                {% for el in blades_type %}
+                    <ul class="item-catalog-cards__list">
+                        <li class="item-catalog-cards__item"><a href=""
+                                                                class="item-catalog-cards__link">{{ el.title }}</a>
+                        </li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+            {% if category.name == 'Rubbers' %}
+                {% for el in rubbers_type %}
+                    <ul class="item-catalog-cards__list">
+                        <li class="item-catalog-cards__item"><a href=""
+                                                                class="item-catalog-cards__link">{{ el.title }}</a>
+                        </li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+            {% if category.name == 'Balls' %}
+                {% for el in balls_rank %}
+                    <ul class="item-catalog-cards__list">
+                        <li class="item-catalog-cards__item"><a href=""
+                                                                class="item-catalog-cards__link">{{ el.title }}</a>
+                        </li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+            {% if category.name == 'Backpacks and bags' %}
+                {% for el in backpacks_bags_type %}
+                    <ul class="item-catalog-cards__list">
+                        <li class="item-catalog-cards__item"><a href=""
+                                                                class="item-catalog-cards__link">{{ el.title }}</a>
+                        </li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+            {% if category.name == 'Tennis nets' %}
+                {% for el in nets_brand %}
+                    <ul class="item-catalog-cards__list">
+                        <li class="item-catalog-cards__item"><a href=""
+                                                                class="item-catalog-cards__link">{{ el.title }}</a>
+                        </li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+            {% if category.name == 'Made rackets' %}
+                {% for el in rackets_type %}
+                    <ul class="item-catalog-cards__list">
+                        <li class="item-catalog-cards__item"><a href=""
+                                                                class="item-catalog-cards__link">{{ el.title }}</a>
+                        </li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+            {% if category.name == 'Accessories' %}
+                {% for el in accessories_type %}
+                    <ul class="item-catalog-cards__list">
+                        <li class="item-catalog-cards__item"><a href=""
+                                                                class="item-catalog-cards__link">{{ el.title }}</a>
+                        </li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+            {% if category.name == 'Tables' %}
+                {% for el in tables_section %}
+                    <ul class="item-catalog-cards__list">
+                        <li class="item-catalog-cards__item"><a href=""
+                                                                class="item-catalog-cards__link">{{ el.title }}</a>
+                        </li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div href="" class="item-catalog-cards__image">
+            <picture>
+                <source srcset="/media/main-block/catalog_images/base.webp" type="image/webp">
+                <img src="/media/main-block/catalog_images/base.jpeg" alt="Картинка"></picture>
+        </div>
+    </div>
+{% endfor %}
