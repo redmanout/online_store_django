@@ -18,6 +18,7 @@ class CategoryList(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         ctx = super().get_context_data(**kwargs)
+        ctx['category_catalog_card'] = CategoryProduct.objects.filter(visibility_catalog_cards=True)
         ctx['product_bestseller'] = Product.objects.filter(bestseller=True)
         ctx['product_new'] = Product.objects.filter(new=True)
         ctx['product_stock'] = Product.objects.filter(stock=True)
@@ -49,11 +50,6 @@ class ProductDetailView(FormMixin, DetailView):
             form.save()
             messages.success(request, 'Your review has been sent')
         return redirect(product.get_absolute_url())
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        ctx = super().get_context_data(**kwargs)
-
-        return ctx
 
 
 class SearchView(ListView):

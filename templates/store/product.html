@@ -28,6 +28,7 @@
                     <div class="main-product__images images-product">
                         <div class="images-product__slider swiper">
                             <div class="images-product__swiper swiper-wrapper">
+
                                 {% for image in object.images_product.all %}
                                     <div class="images-product__slide-ibg swiper-slide">
                                         <picture>
@@ -35,10 +36,12 @@
                                             <img src="{{ image.image.url }}" alt=""></picture>
                                     </div>
                                 {% endfor %}
+
                             </div>
                         </div>
                         <div class="images-product__thumbs thumbs-images swiper">
                             <div class="thumbs-images__swiper swiper-wrapper">
+
                                 {% for image in object.images_product.all %}
                                     <div class="thumbs-images__slide-ibg swiper-slide">
                                         <picture>
@@ -46,6 +49,7 @@
                                             <img src="{{ image.image.url }}" alt=""></picture>
                                     </div>
                                 {% endfor %}
+
                             </div>
                         </div>
                     </div>
@@ -69,7 +73,9 @@
                                 </div>
                                 <div class="rating__value">3.6</div>
                             </div>
+
                             {% include 'include/attr_product.html' %}
+
                         </div>
                         <div class="body-product__actions actions-product">
                             <div class="actions-product__price">{{ object.price }} UAH</div>
@@ -117,15 +123,18 @@
                                     <h3>Review</h3>
                                     <input type="text" placeholder="Username" name="name">
                                     <textarea placeholder="Message..." rows="4" name="text"></textarea>
+
                                     {% if user.id is not None %}
                                         <input type="submit" value="Send">
                                     {% else %}
                                         You must be logged in to submit a review
                                     {% endif %}
+
                                 </div>
                             </form>
                             <div class="block__comments">
                                 <h2>Reviews</h2>
+
                                 {% for review in object.reviews_product.all %}
                                     <div class="product_comments product-comments">
                                         <img src="" class="product-comments__image" alt="">
@@ -137,6 +146,7 @@
                                         </div>
                                     </div>
                                 {% endfor %}
+
                             </div>
                         </div>
                     </div>

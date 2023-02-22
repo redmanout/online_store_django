@@ -7,6 +7,10 @@ from users.models import CustomUser
 
 # Create your models here.
 
+def get_upload_path_category(instance, filename):
+    return "main-block/category/{0}/{1}".format(instance.name, filename).lower()
+
+
 class CategoryProduct(models.Model):
     name = models.CharField(
         max_length=120,
@@ -29,6 +33,14 @@ class CategoryProduct(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True,
         verbose_name='Date of change',
+    )
+    visibility_catalog_cards = models.BooleanField(
+        verbose_name='Visibility in catalog cards',
+        default=True,
+    )
+    image = models.ImageField(
+        blank=True,
+        upload_to=get_upload_path_category,
     )
 
     def __str__(self):

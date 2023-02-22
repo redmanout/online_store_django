@@ -1,9 +1,9 @@
-{% for category in categories_product %}
+{% for category in category_catalog_card %}
     <div class="catalog-cards__item item-catalog-cards">
         <div class="item-catalog-cards__body">
             <h3 class="item-catalog-cards__title">
-                <a href=""
-                   class="item-catalog-cards__link-title">{{ category.name }}</a>
+                <a href="/store/?{{ category.id }}"
+                   class="item-catalog-cards__link-title">{{ category }}</a>
             </h3>
             {% if category.name == 'Blades' %}
                 {% for el in blades_type %}
@@ -79,9 +79,7 @@
             {% endif %}
         </div>
         <div href="" class="item-catalog-cards__image">
-            <picture>
-                <source srcset="/media/main-block/catalog_images/base.webp" type="image/webp">
-                <img src="/media/main-block/catalog_images/base.jpeg" alt="Картинка"></picture>
+            <img src="{{ category.image.url }}" alt="">
         </div>
     </div>
 {% endfor %}
