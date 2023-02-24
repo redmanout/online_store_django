@@ -102,329 +102,317 @@
                             {% get_attribute_blades as attribute_blades %}
                             {% for attribute in attribute_blades %}
                                 <div class="sub-menu-catalog__category">
-                                    <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
+                                    <a class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
                                 {% get_brand_blades as brand_blades %}
                                 {% for brand in brand_blades %}
                                     <li class="sub-menu-catalog__item">
-                                        <a href="" class="sub-menu-catalog__link">{{ brand.title }}</a>
+                                        <a href="{% url 'catalog' %}?blades-brand={{ brand.id }}"
+                                           class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_type_blades as type_blades %}
                                 {% for type in type_blades %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ type.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?blades-type={{ type.id }}"
+                                            class="sub-menu-catalog__link">{{ type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_handle_type_blades as handle_type_blades %}
                                 {% for handle_type in handle_type_blades %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ handle_type.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?blades-handle-type={{ handle_type.id }}"
+                                            class="sub-menu-catalog__link">{{ handle_type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_composition_blades as composition_blades %}
                                 {% for composition in composition_blades %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ composition.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?blades-composition={{ composition.id }}"
+                                            class="sub-menu-catalog__link">{{ composition.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_size_blades as size_blades %}
                                 {% for size in size_blades %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ size.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?blades-size={{ size.id }}"
+                                            class="sub-menu-catalog__link">{{ size.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in attribute_blades %}
-                                <div class="sub-menu-catalog__footer">
-                                    <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
-                                </div>
-                            {% endfor %}
                         </div>
                         <div hidden data-submenu="Rubbers" class="sub-menu-catalog__block">
                             {% get_attribute_rubbers as attribute_rubbers %}
                             {% for attribute in attribute_rubbers %}
                                 <div class="sub-menu-catalog__category">
-                                    <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
+                                    <a class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
                                 {% get_brand_rubbers as brand_rubbers %}
                                 {% for brand in brand_rubbers %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ brand.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?rubbers-brand={{ brand.id }}"
+                                            class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_type_rubbers as type_rubbers %}
                                 {% for type in type_rubbers %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ type.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?rubbers-type={{ type.id }}"
+                                            class="sub-menu-catalog__link">{{ type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_speed_type_rubbers as speed_type_rubbers %}
                                 {% for speed_type in speed_type_rubbers %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ speed_type.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?rubbers-speed-type={{ speed_type.id }}"
+                                            class="sub-menu-catalog__link">{{ speed_type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in attribute_rubbers %}
-                                <div class="sub-menu-catalog__footer">
-                                    <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
-                                </div>
-                            {% endfor %}
                         </div>
                         <div hidden data-submenu="Balls" class="sub-menu-catalog__block">
                             {% get_attribute_balls as attribute_balls %}
                             {% for attribute in attribute_balls %}
                                 <div class="sub-menu-catalog__category">
-                                    <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
+                                    <a class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
                                 {% get_brand_balls as brand_balls %}
                                 {% for brand in brand_balls %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ brand.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?balls-brand={{ brand.id }}"
+                                            class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_rank_balls as rank_balls %}
                                 {% for rank in rank_balls %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ rank.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?balls-rank={{ rank.id }}"
+                                            class="sub-menu-catalog__link">{{ rank.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_package_balls as package_balls %}
                                 {% for package in package_balls %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ package.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?balls-package={{ package.id }}"
+                                            class="sub-menu-catalog__link">{{ package.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in attribute_balls %}
-                                <div class="sub-menu-catalog__footer">
-                                    <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
-                                </div>
-                            {% endfor %}
                         </div>
                         <div hidden data-submenu="Backpacks and bags" class="sub-menu-catalog__block">
                             {% get_attribute_backpacksbags as attribute_backpacksbags %}
                             {% for attribute in attribute_backpacksbags %}
                                 <div class="sub-menu-catalog__category">
-                                    <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
+                                    <a class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
                                 {% get_brand_backpacksbags as brand_backpacksbags %}
                                 {% for brand in brand_backpacksbags %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ brand.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?bags-brand={{ brand.id }}"
+                                            class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_type_backpacksbags as type_backpacksbags %}
                                 {% for type in type_backpacksbags %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ type.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?bags-type={{ type.id }}"
+                                            class="sub-menu-catalog__link">{{ type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_color_backpacksbags as color_backpacksbags %}
                                 {% for color in color_backpacksbags %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ color.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?bags-color={{ color.id }}"
+                                            class="sub-menu-catalog__link">{{ color.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in attribute_backpacksbags %}
-                                <div class="sub-menu-catalog__footer">
-                                    <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
-                                </div>
-                            {% endfor %}
                         </div>
                         <div hidden data-submenu="Tennis nets" class="sub-menu-catalog__block">
                             {% get_attribute_nets as attribute_nets %}
                             {% for attribute in attribute_nets %}
                                 <div class="sub-menu-catalog__category">
-                                    <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
+                                    <a class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
                                 {% get_brand_nets as brand_nets %}
                                 {% for brand in brand_nets %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ brand.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?nets-brand={{ brand.id }}"
+                                            class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_color_nets as color_nets %}
                                 {% for color in color_nets %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ color.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?nets-color={{ color.id }}"
+                                            class="sub-menu-catalog__link">{{ color.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in attribute_nets %}
-                                <div class="sub-menu-catalog__footer">
-                                    <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
-                                </div>
-                            {% endfor %}
                         </div>
                         <div hidden data-submenu="Tables" class="sub-menu-catalog__block">
                             {% get_attribute_tables as attribute_tables %}
                             {% for attribute in attribute_tables %}
                                 <div class="sub-menu-catalog__category">
-                                    <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
+                                    <a class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
                                 {% get_brand_tables as brand_tables %}
                                 {% for brand in brand_tables %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ brand.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?tables-brand={{ brand.id }}"
+                                            class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_section_tables as section_tables %}
                                 {% for section in section_tables %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ section.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?tables-section={{ section.id }}"
+                                            class="sub-menu-catalog__link">{{ section.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_color_tables as color_tables %}
                                 {% for color in color_tables %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ color.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?tables-color={{ color.id }}"
+                                            class="sub-menu-catalog__link">{{ color.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_thickness_tables as thickness_tables %}
                                 {% for thickness in thickness_tables %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ thickness.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?tables-thickness={{ thickness.id }}"
+                                            class="sub-menu-catalog__link">{{ thickness.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in attribute_tables %}
-                                <div class="sub-menu-catalog__footer">
-                                    <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
-                                </div>
-                            {% endfor %}
                         </div>
                         <div hidden data-submenu="Made rackets" class="sub-menu-catalog__block">
                             {% get_attribute_rackets as attribute_rackets %}
                             {% for attribute in attribute_rackets %}
                                 <div class="sub-menu-catalog__category">
-                                    <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
+                                    <a class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
                                 {% get_brand_rackets as brand_rackets %}
                                 {% for brand in brand_rackets %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ brand.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?rackets-brand={{ brand.id }}"
+                                            class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_type_rackets as type_rackets %}
                                 {% for type in type_rackets %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ type.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?rackets-type={{ type.id }}"
+                                            class="sub-menu-catalog__link">{{ type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_handle_type_rackets as handle_type_rackets %}
                                 {% for handle_type in handle_type_rackets %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ handle_type.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?rackets-handle-type={{ handle_type.id }}"
+                                            class="sub-menu-catalog__link">{{ handle_type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_average_weight_rackets as average_weight_rackets %}
                                 {% for average_weight in average_weight_rackets %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ average_weight.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?rackets-average-weight={{ average_weight.id }}"
+                                            class="sub-menu-catalog__link">{{ average_weight.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_rubbers_thickness_rackets as rubbers_thickness_rackets %}
                                 {% for rubbers_thickness in rubbers_thickness_rackets %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ rubbers_thickness.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?rackets-rubbers-thickness={{ rubbers_thickness.id }}"
+                                            class="sub-menu-catalog__link">{{ rubbers_thickness.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in attribute_rackets %}
-                                <div class="sub-menu-catalog__footer">
-                                    <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
-                                </div>
-                            {% endfor %}
                         </div>
                         <div hidden data-submenu="Accessories" class="sub-menu-catalog__block">
                             {% get_attribute_accessories as attribute_accessories %}
                             {% for attribute in attribute_accessories %}
                                 <div class="sub-menu-catalog__category">
-                                    <a href="#" class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
+                                    <a class="sub-menu-catalog__link-category">{{ attribute.name }}</a>
                                 </div>
                             {% endfor %}
                             <ul class="sub-menu-catalog__list">
                                 {% get_brand_accessories as brand_accessories %}
                                 {% for brand in brand_accessories %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ brand.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?accessories-brand={{ brand.id }}"
+                                            class="sub-menu-catalog__link">{{ brand.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_type_accessories as type_accessories %}
                                 {% for type in type_accessories %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ type.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?accessories-type={{ type.id }}"
+                                            class="sub-menu-catalog__link">{{ type.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <ul class="sub-menu-catalog__list">
                                 {% get_color_accessories as color_accessories %}
                                 {% for color in color_accessories %}
-                                    <li class="sub-menu-catalog__item"><a href=""
-                                                                          class="sub-menu-catalog__link">{{ color.title }}</a>
+                                    <li class="sub-menu-catalog__item"><a
+                                            href="{% url 'catalog' %}?accessories-color={{ color.id }}"
+                                            class="sub-menu-catalog__link">{{ color.title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% for el in attribute_accessories %}
-                                <div class="sub-menu-catalog__footer">
-                                    <a href="" class="sub-menu-catalog__all">{{ 'See all' }}</a>
-                                </div>
-                            {% endfor %}
                         </div>
                     </div>
                 </div>

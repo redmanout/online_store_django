@@ -2,13 +2,13 @@
     <div class="catalog-cards__item item-catalog-cards">
         <div class="item-catalog-cards__body">
             <h3 class="item-catalog-cards__title">
-                <a href="/store/?{{ category.id }}"
+                <a href="{% url 'catalog' %}?category={{ category.id }}"
                    class="item-catalog-cards__link-title">{{ category }}</a>
             </h3>
             {% if category.name == 'Blades' %}
                 {% for el in blades_type %}
                     <ul class="item-catalog-cards__list">
-                        <li class="item-catalog-cards__item"><a href=""
+                        <li class="item-catalog-cards__item"><a href="{% url 'catalog' %}?blades-type={{ el.id }}"
                                                                 class="item-catalog-cards__link">{{ el.title }}</a>
                         </li>
                     </ul>
@@ -78,8 +78,8 @@
                 {% endfor %}
             {% endif %}
         </div>
-        <div href="" class="item-catalog-cards__image">
-            <img src="{{ category.image.url }}" alt="">
+        <div class="item-catalog-cards__image">
+            <img src="{{ category.image.url }}" alt="{{ category.name }}">
         </div>
     </div>
 {% endfor %}

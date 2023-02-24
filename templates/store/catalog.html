@@ -84,7 +84,7 @@
                             </select>
                         </div>
                         <div class="catalog__products">
-                            {% for product in products %}
+                            {% for product in filter_products %}
                                 <article class="product-card">
                                     <a href="{{ product.get_absolute_url }}" class="product-card__image">
 										<span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
