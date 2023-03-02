@@ -24,6 +24,7 @@ urlpatterns = [
     path('pages/', include('django.contrib.flatpages.urls')),
     path('', include('store.urls')),
     path('', include('users.urls')),
+    path('', include('order.urls')),
 
 ]
 

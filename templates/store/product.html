@@ -79,23 +79,25 @@
                         </div>
                         <div class="body-product__actions actions-product">
                             <div class="actions-product__price">{{ object.price }} UAH</div>
-                            <div class="actions-product__row">
-                                <div data-quantity class="actions-product__quantity quantity">
-                                    <button data-quantity-plus type="button"
-                                            class="quantity__button quantity__button_plus"></button>
-                                    <div class="quantity__input">
-                                        <input data-quantity-value autocomplete="off" type="text" name="form[]"
-                                               value="1">
+                            <form action="{% url 'add_to_cart' object.id %}" method="post">
+                                {% csrf_token %}
+                                <div class="actions-product__row">
+                                    <div data-quantity class="actions-product__quantity quantity">
+                                        <button data-quantity-minus type="button"
+                                                class="quantity__button quantity__button_minus"></button>
+                                        <div class="quantity__input">
+                                            <input data-quantity-value autocomplete="off" type="text" name="quantity"
+                                                   value="1" min="1" max="{{ object.quantity_in_stock }}">
+                                        </div>
+                                        <button data-quantity-plus type="button"
+                                                class="quantity__button quantity__button_plus"></button>
                                     </div>
-                                    <button data-quantity-minus type="button"
-                                            class="quantity__button quantity__button_minus"></button>
+                                    <div class="actions-product__buttons">
+                                        <button type="submit" class="actions-product__cart button"><span
+                                                class="_icon-cart">Add to cart</span></button>
+                                    </div>
                                 </div>
-                                <div class="actions-product__buttons">
-                                    <a href="" class="actions-product__cart button"><span
-                                            class="_icon-cart">Add to cart</span></a>
-                                    <a href="" class="actions-product__button button button_black">Buy in 1 click</a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

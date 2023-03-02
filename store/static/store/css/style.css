@@ -4316,6 +4316,7 @@ body::after {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    margin-bottom: 10px;
     padding: 10px;
     background-color: #a9dc96;
     width: 400px;

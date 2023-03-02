@@ -17,16 +17,10 @@ def register(request):
     else:
         form = UserRegForm()
 
-    list_phone = [
-        '+38(098)980-96-21',
-        '+38(098)980-96-22',
-        '+38(098)980-96-23',
-    ]
-    data = {
+    context = {
         'form': form,
-        'list_phone': list_phone,
     }
-    return render(request, 'users/registration.html', context=data)
+    return render(request, 'users/registration.html', context=context)
 
 
 @login_required
@@ -45,8 +39,8 @@ def profile(request):
         edit_profile_form = EditProfileForm(instance=request.user)
         profile_image_form = ProfileImageForm(instance=request.user)
 
-    data = {
+    context = {
         'edit_profile_form': edit_profile_form,
         'profile_image_form': profile_image_form,
     }
-    return render(request, 'users/profile.html', data)
+    return render(request, 'users/profile.html', context=context)

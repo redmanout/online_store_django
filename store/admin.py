@@ -7,7 +7,7 @@ from .models import *
 @admin.register(CategoryProduct)
 class CategoryProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'created_at', 'updated_at', 'slug', 'visibility_catalog_cards', 'image',)
-    list_display_links = ('id', 'name', 'created_at', 'updated_at')
+    list_display_links = ('id', 'name', 'created_at', 'updated_at',)
     search_fields = ('name',)
     list_editable = ('visibility_catalog_cards',)
 

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static 'order/css/style.css' %}">
+{% endblock %}
+
+{% block title %}
+    Store Card
+{% endblock %}
+
+{% block content %}
+    <div class="shopping-cart__container shopping-cart">
+        <div class="title">
+            Shopping Bag
+        </div>
+
+        {% for el in store_cart %}
+            <div class="item">
+                <div class="buttons">
+                    <a href="{% url 'delete_from_cart' el.id %}" class="delete-btn" onclick="return confirm('Delete! Are you sure?')"></a>
+                </div>
+                <div class="image">
+                    <img src="{{ el.product.image.url }}" alt=""/>
+                </div>
+                <div class="description">
+                    <a href="{{ el.product.get_absolute_url }}">{{ el.product.name }}</a>
+                </div>
+                <div class="actions-product__row">
+                    <div data-quantity class="actions-product__quantity quantity">
+                        <button data-quantity-minus type="button"
+                                class="quantity__button quantity__button_minus"></button>
+                        <div class="quantity__input">
+                            <input data-quantity-value autocomplete="off" type="text" name="quantity"
+                                   value="{{ el.quantity }}" min="1" max="{{ el.product.quantity_in_stock }}">
+                        </div>
+                        <button data-quantity-plus type="button"
+                                class="quantity__button quantity__button_plus"></button>
+                    </div>
+                </div>
+                <div class="total-price__product">{{ el.product.price }}</div>
+            </div>
+        {% endfor %}
+
+        <div class="total-price__all">Total price: {{ total_product_all }}</div>
+    </div>
+
+{% endblock %}
