@@ -32,7 +32,7 @@ def get_attribute_blades():
 
 @register.simple_tag()
 def get_brand_blades():
-    return BladesBrand.objects.all()
+    return BladesBrand.objects.all().order_by('title')
 
 
 @register.simple_tag()
@@ -47,12 +47,12 @@ def get_handle_type_blades():
 
 @register.simple_tag()
 def get_composition_blades():
-    return BladesComposition.objects.all()
+    return BladesComposition.objects.all().order_by('title')
 
 
 @register.simple_tag()
 def get_size_blades():
-    return BladesSize.objects.all()
+    return BladesSize.objects.all().order_by('title')
 
 
 @register.simple_tag()
@@ -62,12 +62,12 @@ def get_attribute_rubbers():
 
 @register.simple_tag()
 def get_brand_rubbers():
-    return RubbersBrand.objects.all()
+    return RubbersBrand.objects.all().order_by('title')
 
 
 @register.simple_tag()
 def get_type_rubbers():
-    return RubbersType.objects.all()
+    return RubbersType.objects.all().order_by('title')
 
 
 @register.simple_tag()
@@ -82,7 +82,7 @@ def get_attribute_balls():
 
 @register.simple_tag()
 def get_brand_balls():
-    return BallsBrand.objects.all()
+    return BallsBrand.objects.all().order_by('title')
 
 
 @register.simple_tag()
@@ -92,7 +92,7 @@ def get_rank_balls():
 
 @register.simple_tag()
 def get_package_balls():
-    return BallsPackage.objects.all()
+    return BallsPackage.objects.all().order_by('title')
 
 
 @register.simple_tag()
@@ -102,17 +102,17 @@ def get_attribute_backpacksbags():
 
 @register.simple_tag()
 def get_brand_backpacksbags():
-    return BackpacksBagsBrand.objects.all()
+    return BackpacksBagsBrand.objects.all().order_by('title')
 
 
 @register.simple_tag()
 def get_type_backpacksbags():
-    return BackpacksBagsType.objects.all()
+    return BackpacksBagsType.objects.all().order_by('title')
 
 
 @register.simple_tag()
 def get_color_backpacksbags():
-    return BackpacksBagsColor.objects.all()
+    return BackpacksBagsColor.objects.all().order_by('title')
 
 
 @register.simple_tag()
@@ -122,12 +122,12 @@ def get_attribute_nets():
 
 @register.simple_tag()
 def get_brand_nets():
-    return NetsBrand.objects.all()
+    return NetsBrand.objects.all().order_by('title')
 
 
 @register.simple_tag()
 def get_color_nets():
-    return NetsColor.objects.all()
+    return NetsColor.objects.all().order_by('title')
 
 
 @register.simple_tag()
@@ -137,22 +137,22 @@ def get_attribute_tables():
 
 @register.simple_tag()
 def get_brand_tables():
-    return TablesBrand.objects.all()
+    return TablesBrand.objects.all().order_by('title')
 
 
 @register.simple_tag()
 def get_color_tables():
-    return TablesColor.objects.all()
+    return TablesColor.objects.all().order_by('title')
 
 
 @register.simple_tag()
 def get_section_tables():
-    return TablesSection.objects.all()
+    return TablesSection.objects.all().order_by('title')
 
 
 @register.simple_tag()
 def get_thickness_tables():
-    return TablesThickness.objects.all()
+    return TablesThickness.objects.all().order_by('title')
 
 
 @register.simple_tag()
@@ -162,7 +162,7 @@ def get_attribute_rackets():
 
 @register.simple_tag()
 def get_brand_rackets():
-    return RacketsBrand.objects.all()
+    return RacketsBrand.objects.all().order_by('title')
 
 
 @register.simple_tag()
@@ -192,14 +192,14 @@ def get_attribute_accessories():
 
 @register.simple_tag()
 def get_brand_accessories():
-    return AccessoriesBrand.objects.all()
+    return AccessoriesBrand.objects.all().order_by('title')
 
 
 @register.simple_tag()
 def get_type_accessories():
-    return AccessoriesType.objects.all()
+    return AccessoriesType.objects.all().order_by('title')
 
 
 @register.simple_tag()
 def get_color_accessories():
-    return AccessoriesColor.objects.all()
+    return AccessoriesColor.objects.all().order_by('title')

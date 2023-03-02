@@ -12,7 +12,6 @@ class CategoryProductAdmin(admin.ModelAdmin):
     list_editable = ('visibility_catalog_cards',)
 
 
-
 class ProductImageInline(admin.TabularInline):
     model = Images
     extra = 1

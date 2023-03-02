@@ -17,7 +17,7 @@
             {% if category.name == 'Rubbers' %}
                 {% for el in rubbers_type %}
                     <ul class="item-catalog-cards__list">
-                        <li class="item-catalog-cards__item"><a href=""
+                        <li class="item-catalog-cards__item"><a href="{% url 'catalog' %}?rubbers-type={{ el.id }}"
                                                                 class="item-catalog-cards__link">{{ el.title }}</a>
                         </li>
                     </ul>
@@ -26,7 +26,7 @@
             {% if category.name == 'Balls' %}
                 {% for el in balls_rank %}
                     <ul class="item-catalog-cards__list">
-                        <li class="item-catalog-cards__item"><a href=""
+                        <li class="item-catalog-cards__item"><a href="{% url 'catalog' %}?balls-rank={{ el.id }}"
                                                                 class="item-catalog-cards__link">{{ el.title }}</a>
                         </li>
                     </ul>
@@ -35,7 +35,7 @@
             {% if category.name == 'Backpacks and bags' %}
                 {% for el in backpacks_bags_type %}
                     <ul class="item-catalog-cards__list">
-                        <li class="item-catalog-cards__item"><a href=""
+                        <li class="item-catalog-cards__item"><a href="{% url 'catalog' %}?bags-type={{ el.id }}"
                                                                 class="item-catalog-cards__link">{{ el.title }}</a>
                         </li>
                     </ul>
@@ -44,7 +44,7 @@
             {% if category.name == 'Tennis nets' %}
                 {% for el in nets_brand %}
                     <ul class="item-catalog-cards__list">
-                        <li class="item-catalog-cards__item"><a href=""
+                        <li class="item-catalog-cards__item"><a href="{% url 'catalog' %}?nets-brand={{ el.id }}"
                                                                 class="item-catalog-cards__link">{{ el.title }}</a>
                         </li>
                     </ul>
@@ -53,7 +53,7 @@
             {% if category.name == 'Made rackets' %}
                 {% for el in rackets_type %}
                     <ul class="item-catalog-cards__list">
-                        <li class="item-catalog-cards__item"><a href=""
+                        <li class="item-catalog-cards__item"><a href="{% url 'catalog' %}?rackets-type={{ el.id }}"
                                                                 class="item-catalog-cards__link">{{ el.title }}</a>
                         </li>
                     </ul>
@@ -62,7 +62,7 @@
             {% if category.name == 'Accessories' %}
                 {% for el in accessories_type %}
                     <ul class="item-catalog-cards__list">
-                        <li class="item-catalog-cards__item"><a href=""
+                        <li class="item-catalog-cards__item"><a href="{% url 'catalog' %}?accessories-type={{ el.id }}"
                                                                 class="item-catalog-cards__link">{{ el.title }}</a>
                         </li>
                     </ul>
@@ -71,7 +71,7 @@
             {% if category.name == 'Tables' %}
                 {% for el in tables_section %}
                     <ul class="item-catalog-cards__list">
-                        <li class="item-catalog-cards__item"><a href=""
+                        <li class="item-catalog-cards__item"><a href="{% url 'catalog' %}?tables-section={{ el.id }}"
                                                                 class="item-catalog-cards__link">{{ el.title }}</a>
                         </li>
                     </ul>
