@@ -1781,16 +1781,24 @@
                     if (spollerTitles.length) {
                         spollerTitles = Array.from(spollerTitles).filter((item => item.closest("[data-spollers]") === spollersBlock));
                         spollerTitles.forEach((spollerTitle => {
+                            const spollerBody = spollerTitle.nextElementSibling;
                             if (hideSpollerBody) {
                                 spollerTitle.removeAttribute("tabindex");
-                                if (!spollerTitle.classList.contains("_spoller-active")) spollerTitle.nextElementSibling.hidden = true;
+                                if (!spollerTitle.classList.contains("_spoller-active")) {
+                                    spollerBody.hidden = true;
+                                    if (spollersBlock.dataset.spollerDefault === "opened") {
+                                        spollerTitle.classList.add("_spoller-active");
+                                        spollerBody.hidden = false;
+                                    }
+                                }
                             } else {
                                 spollerTitle.setAttribute("tabindex", "-1");
-                                spollerTitle.nextElementSibling.hidden = false;
+                                spollerBody.hidden = false;
                             }
                         }));
                     }
                 }
+
 
                 function setSpollerAction(e) {
                     const el = e.target;
@@ -1802,11 +1810,18 @@
                         if (!spollersBlock.querySelectorAll("._slide").length) {
                             if (oneSpoller && !spollerTitle.classList.contains("_spoller-active")) hideSpollersBody(spollersBlock);
                             spollerTitle.classList.toggle("_spoller-active");
-                            _slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
+                            const spollerBody = spollerTitle.nextElementSibling;
+                            if (spollerBody.hidden && spollersBlock.dataset.spollerDefault === "opened") {
+                                spollerTitle.classList.remove("_spoller-active");
+                                spollerBody.hidden = false;
+                            } else {
+                                _slideToggle(spollerBody, spollerSpeed);
+                            }
                         }
                         e.preventDefault();
                     }
                 }
+
 
                 function hideSpollersBody(spollersBlock) {
                     const spollerActiveTitle = spollersBlock.querySelector("[data-spoller]._spoller-active");

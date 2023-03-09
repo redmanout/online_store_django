@@ -73,105 +73,76 @@ class CatalogFilter(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
 
-        category_id = self.request.GET.get('category')
+        attribute_filters = {
+            'blade': {
+                'brand': 'blade_attribute__brand',
+                'type': 'blade_attribute__type',
+                'handle_type': 'blade_attribute__handle_type',
+                'composition': 'blade_attribute__composition',
+                'size': 'blade_attribute__size',
+            },
+            'rubber': {
+                'brand': 'rubber_attribute__brand',
+                'type': 'rubber_attribute__type',
+                'speed_type': 'rubber_attribute__speed_type',
+            },
+            'ball': {
+                'brand': 'ball_attribute__brand',
+                'rank': 'ball_attribute__rank',
+                'package': 'ball_attribute__package',
+            },
+            'bag': {
+                'brand': 'bag_attribute__brand',
+                'type': 'bag_attribute__type',
+                'color': 'bag_attribute__color',
+            },
+            'net': {
+                'brand': 'net_attribute__brand',
+                'color': 'net_attribute__color',
+            },
+            'racket': {
+                'brand': 'racket_attribute__brand',
+                'type': 'racket_attribute__type',
+                'handle_type': 'racket_attribute__handle_type',
+                'average_weight': 'racket_attribute__average_weight',
+                'rubbers_thickness': 'racket_attribute__rubbers_thickness',
+            },
+            'accessory': {
+                'brand': 'accessory_attribute__brand',
+                'type': 'accessory_attribute__type',
+                'color': 'accessory_attribute__color',
+            },
+            'table': {
+                'brand': 'table_attribute__brand',
+                'section': 'table_attribute__section',
+                'color': 'table_attribute__color',
+                'thickness': 'table_attribute__thickness',
+            }
+        }
 
-        blades_brand_id = self.request.GET.get('blades-brand')
-        blades_type_id = self.request.GET.get('blades-type')
-        blades_handle_type_id = self.request.GET.get('blades-handle-type')
-        blades_composition_id = self.request.GET.get('blades-composition')
-        blades_size_id = self.request.GET.get('blades-size')
+        """В переменную filters будет сохраняться словарь, содержащий фильтры, которые будут использоваться
+        для фильтрации продуктов. Перебор параметров GET-запроса и их значений. Если ключ является "category",
+        то сохраняем его значение в словарь фильтров. Если ключ не является "category", то проходим по списку
+        атрибутов, определенных в переменной attribute_filters. Если ключ начинается с типа атрибута, то проверяем
+        каждый атрибут в этом типе. Если ключ оканчивается конкретным атрибутом, то сохраняем его значение в словарь
+        фильтров, используя соответствующий ключ фильтра. Мы также добавляем 'available_status' в словарь,
+        чтобы показать, что мы ищем только товары, которые доступны в наличии. Если словарь фильтров не пуст,
+        то используем его для фильтрации объектов модели Product и сохраняем результат в переменную queryset."""
+        filters = {}
 
-        rubbers_brand_id = self.request.GET.get('rubbers-brand')
-        rubbers_type_id = self.request.GET.get('rubbers-type')
-        rubbers_speed_type_id = self.request.GET.get('rubbers-speed-type')
-
-        balls_brand_id = self.request.GET.get('balls-brand')
-        balls_rank_id = self.request.GET.get('balls-rank')
-        balls_package_id = self.request.GET.get('balls-package')
-
-        bags_brand_id = self.request.GET.get('bags-brand')
-        bags_type_id = self.request.GET.get('bags-type')
-        bags_color_id = self.request.GET.get('bags-color')
-
-        nets_brand_id = self.request.GET.get('nets-brand')
-        nets_color_id = self.request.GET.get('nets-color')
-
-        rackets_brand_id = self.request.GET.get('rackets-brand')
-        rackets_type_id = self.request.GET.get('rackets-type')
-        rackets_handle_type_id = self.request.GET.get('rackets-handle-type')
-        rackets_average_weight_id = self.request.GET.get('rackets-average-weight')
-        rackets_rubbers_thickness_id = self.request.GET.get('rackets-rubbers-thickness')
-
-        accessories_brand_id = self.request.GET.get('accessories-brand')
-        accessories_type_id = self.request.GET.get('accessories-type')
-        accessories_color_id = self.request.GET.get('accessories-color')
-
-        tables_brand_id = self.request.GET.get('tables-brand')
-        tables_section_id = self.request.GET.get('tables-section')
-        tables_color_id = self.request.GET.get('tables-color')
-        tables_thickness_id = self.request.GET.get('tables-thickness')
-
-        if category_id:
-            queryset = Product.objects.filter(category=category_id)
-        elif blades_brand_id:
-            queryset = Product.objects.filter(blade_attribute__brand=blades_brand_id, available_status=True)
-        elif blades_type_id:
-            queryset = Product.objects.filter(blade_attribute__type=blades_type_id, available_status=True)
-        elif blades_handle_type_id:
-            queryset = Product.objects.filter(blade_attribute__handle_type=blades_handle_type_id, available_status=True)
-        elif blades_composition_id:
-            queryset = Product.objects.filter(blade_attribute__composition=blades_composition_id, available_status=True)
-        elif blades_size_id:
-            queryset = Product.objects.filter(blade_attribute__size=blades_size_id, available_status=True)
-        elif rubbers_brand_id:
-            queryset = Product.objects.filter(rubber_attribute__brand=rubbers_brand_id, available_status=True)
-        elif rubbers_type_id:
-            queryset = Product.objects.filter(rubber_attribute__type=rubbers_type_id, available_status=True)
-        elif rubbers_speed_type_id:
-            queryset = Product.objects.filter(rubber_attribute__speed_type=rubbers_speed_type_id, available_status=True)
-        elif balls_brand_id:
-            queryset = Product.objects.filter(ball_attribute__brand=balls_brand_id, available_status=True)
-        elif balls_rank_id:
-            queryset = Product.objects.filter(ball_attribute__rank=balls_rank_id, available_status=True)
-        elif balls_package_id:
-            queryset = Product.objects.filter(ball_attribute__package=balls_package_id, available_status=True)
-        elif bags_brand_id:
-            queryset = Product.objects.filter(bag_attribute__brand=bags_brand_id, available_status=True)
-        elif bags_type_id:
-            queryset = Product.objects.filter(bag_attribute__type=bags_type_id, available_status=True)
-        elif bags_color_id:
-            queryset = Product.objects.filter(bag_attribute__color=bags_color_id, available_status=True)
-        elif nets_brand_id:
-            queryset = Product.objects.filter(net_attribute__brand=nets_brand_id, available_status=True)
-        elif nets_color_id:
-            queryset = Product.objects.filter(net_attribute__color=nets_color_id, available_status=True)
-        elif rackets_brand_id:
-            queryset = Product.objects.filter(racket_attribute__brand=rackets_brand_id, available_status=True)
-        elif rackets_type_id:
-            queryset = Product.objects.filter(racket_attribute__type=rackets_type_id, available_status=True)
-        elif rackets_handle_type_id:
-            queryset = Product.objects.filter(racket_attribute__handle_type=rackets_handle_type_id,
-                                              available_status=True)
-        elif rackets_average_weight_id:
-            queryset = Product.objects.filter(racket_attribute__average_weight=rackets_average_weight_id,
-                                              available_status=True)
-        elif rackets_rubbers_thickness_id:
-            queryset = Product.objects.filter(racket_attribute__rubbers_thickness=rackets_rubbers_thickness_id,
-                                              available_status=True)
-        elif accessories_brand_id:
-            queryset = Product.objects.filter(accessory_attribute__brand=accessories_brand_id, available_status=True)
-        elif accessories_type_id:
-            queryset = Product.objects.filter(accessory_attribute__type=accessories_type_id, available_status=True)
-        elif accessories_color_id:
-            queryset = Product.objects.filter(accessory_attribute__color=accessories_color_id, available_status=True)
-        elif tables_brand_id:
-            queryset = Product.objects.filter(table_attribute__brand=tables_brand_id, available_status=True)
-        elif tables_section_id:
-            queryset = Product.objects.filter(table_attribute__section=tables_section_id, available_status=True)
-        elif tables_color_id:
-            queryset = Product.objects.filter(table_attribute__color=tables_color_id, available_status=True)
-        elif tables_thickness_id:
-            queryset = Product.objects.filter(table_attribute__thickness=tables_thickness_id, available_status=True)
+        for key in self.request.GET:
+            value = self.request.GET.get(key)
+            if key == 'category':
+                filters['category'] = value
+            else:
+                for attribute_type, attribute_map in attribute_filters.items():
+                    if key.startswith(attribute_type):
+                        for attribute, filter_key in attribute_map.items():
+                            if key.endswith(attribute):
+                                filters[filter_key] = value
+                                filters['available_status'] = True
+        if filters:
+            queryset = Product.objects.filter(**filters)
 
         return queryset
 
