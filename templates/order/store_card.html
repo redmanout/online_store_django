@@ -19,7 +19,8 @@
         {% for el in store_cart %}
             <div class="item">
                 <div class="buttons">
-                    <a href="{% url 'delete_from_cart' el.id %}" class="delete-btn" onclick="return confirm('Delete! Are you sure?')"></a>
+                    <a href="{% url 'delete_from_cart' el.id %}" class="delete-btn"
+                       onclick="return confirm('Delete! Are you sure?')"></a>
                 </div>
                 <div class="image">
                     <img src="{{ el.product.image.url }}" alt=""/>
@@ -43,7 +44,10 @@
             </div>
         {% endfor %}
 
-        <div class="total-price__all">Total price: {{ total_product_all }}</div>
+        <div class="total-price__all">Total price: {{ total_price }}</div>
+        <div class="cart-store__body">
+            <a href="{% url 'order_product' %}" class="cart-store__cart">Checkout</a>
+        </div>
     </div>
 
 {% endblock %}

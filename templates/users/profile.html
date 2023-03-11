@@ -17,6 +17,9 @@
             <div class="name">{{ user.first_name }} {{ user.last_name }}</div>
             {% if user.email %}
                 <div class="email">{{ user.email }}</div>
+                <div class="name">{{ user.phone }}</div>
+                <div class="address">{{ user.address }}</div>
+                <div class="location">{{ user.city }}, {{ user.country }}</div>
             {% endif %}
         </div>
     </div>
@@ -28,7 +31,6 @@
             {% csrf_token %}
             {{ edit_profile_form.as_p }}
             {{ profile_image_form.as_p }}
-            {{ form.as_p }}
             <div class="form-buttons">
                 <button class="button_reg button_form" type="submit">Update</button>
             </div>

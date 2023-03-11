@@ -43,11 +43,31 @@ class EditProfileForm(forms.ModelForm):
         required=True,
         widget=forms.TextInput(attrs={'class': 'input_reg_form', 'placeholder': 'Enter your email'}),
     )
+    phone = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'input_reg_form', 'placeholder': 'Enter your phone'}),
+    )
+    address = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'input_reg_form', 'placeholder': 'Enter your address'}),
+    )
+    city = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'input_reg_form', 'placeholder': 'Enter your city'}),
+    )
+    country = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'input_reg_form', 'placeholder': 'Enter your country'}),
+    )
 
     class Meta:
         model = CustomUser
         fields = (
             'email',
+            'phone',
+            'address',
+            'city',
+            'country',
         )
 
 

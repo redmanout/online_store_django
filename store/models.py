@@ -12,36 +12,12 @@ def get_upload_path_category(instance, filename):
 
 
 class CategoryProduct(models.Model):
-    name = models.CharField(
-        max_length=120,
-        db_index=True,
-        verbose_name='Category name',
-        unique=True,
-    )
-    slug = AutoSlugField(
-        populate_from='name',
-        max_length=150,
-        unique=True,
-        db_index=True,
-        null=True,
-        default=None,
-    )
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name='Date of creation',
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        verbose_name='Date of change',
-    )
-    visibility_catalog_cards = models.BooleanField(
-        verbose_name='Visibility in catalog cards',
-        default=True,
-    )
-    image = models.ImageField(
-        blank=True,
-        upload_to=get_upload_path_category,
-    )
+    name = models.CharField(max_length=120, db_index=True, verbose_name='Category name', unique=True, )
+    slug = AutoSlugField(populate_from='name', max_length=150, unique=True, db_index=True, null=True, default=None, )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Date of creation', )
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Date of change', )
+    visibility_catalog_cards = models.BooleanField(verbose_name='Visibility in catalog cards', default=True, )
+    image = models.ImageField(blank=True, upload_to=get_upload_path_category, )
 
     def __str__(self):
         return self.name
@@ -57,70 +33,21 @@ def get_upload_path(instance, filename):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(
-        CategoryProduct,
-        verbose_name='Category',
-        related_name='category',
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=200,
-        db_index=True,
-    )
-    slug = AutoSlugField(
-        populate_from='name',
-        max_length=150,
-        unique=True,
-        db_index=True,
-        null=True,
-        default=None,
-    )
-    description = models.TextField(
-        verbose_name='Description',
-        blank=True,
-    )
-    characteristics = models.TextField(
-        verbose_name='Characteristics',
-        blank=True,
-    )
-    available_status = models.BooleanField(
-        verbose_name='Available status',
-        default=True,
-    )
-    bestseller = models.BooleanField(
-        verbose_name='Bestseller',
-        default=True,
-    )
-    new = models.BooleanField(
-        verbose_name='New',
-        default=True,
-    )
-    stock = models.BooleanField(
-        verbose_name='Stock',
-        default=True,
-    )
-    quantity_in_stock = models.PositiveIntegerField(
-        verbose_name='Quantity in stock',
-        default=0,
-    )
-    price = models.DecimalField(
-        verbose_name='Price',
-        max_digits=10,
-        decimal_places=2,
-    )
-    created_at = models.DateTimeField(
-        verbose_name='Created at',
-        auto_now_add=True,
-    )
-    updated_at = models.DateTimeField(
-        verbose_name='Updated at',
-        auto_now=True,
-    )
-    image = models.ImageField(
-        blank=True,
-        upload_to=get_upload_path,
-    )
+    category = models.ForeignKey(CategoryProduct, verbose_name='Category', related_name='category',
+                                 on_delete=models.CASCADE, )
+    name = models.CharField(verbose_name='Name', max_length=200, db_index=True, )
+    slug = AutoSlugField(populate_from='name', max_length=150, unique=True, db_index=True, null=True, default=None, )
+    description = models.TextField(verbose_name='Description', blank=True, )
+    characteristics = models.TextField(verbose_name='Characteristics', blank=True, )
+    available_status = models.BooleanField(verbose_name='Available status', default=True, )
+    bestseller = models.BooleanField(verbose_name='Bestseller', default=True, )
+    new = models.BooleanField(verbose_name='New', default=True, )
+    stock = models.BooleanField(verbose_name='Stock', default=True, )
+    quantity_in_stock = models.PositiveIntegerField(verbose_name='Quantity in stock', default=0, )
+    price = models.DecimalField(verbose_name='Price', max_digits=10, decimal_places=2, )
+    created_at = models.DateTimeField(verbose_name='Created at', auto_now_add=True, )
+    updated_at = models.DateTimeField(verbose_name='Updated at', auto_now=True, )
+    image = models.ImageField(blank=True, upload_to=get_upload_path, )
 
     def __str__(self):
         return self.name
@@ -135,16 +62,8 @@ class Product(models.Model):
 
 
 class BladesProductAttribute(models.Model):
-    category = models.ForeignKey(
-        CategoryProduct,
-        verbose_name='Category',
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=100,
-        db_index=True,
-    )
+    category = models.ForeignKey(CategoryProduct, verbose_name='Category', on_delete=models.CASCADE, )
+    name = models.CharField(verbose_name='Name', max_length=100, db_index=True, )
 
     def __str__(self):
         return self.name
@@ -194,36 +113,12 @@ class BladesSize(models.Model):
 
 
 class ValueBladesAttribute(models.Model):
-    product = models.ForeignKey(
-        Product,
-        related_name='blade_attribute',
-        on_delete=models.CASCADE,
-    )
-    brand = models.ForeignKey(
-        BladesBrand,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    type = models.ForeignKey(
-        BladesType,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    handle_type = models.ForeignKey(
-        BladesHandleType,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    composition = models.ForeignKey(
-        BladesComposition,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    size = models.ForeignKey(
-        BladesSize,
-        on_delete=models.CASCADE,
-        default=None,
-    )
+    product = models.ForeignKey(Product, related_name='blade_attribute', on_delete=models.CASCADE, )
+    brand = models.ForeignKey(BladesBrand, on_delete=models.CASCADE, default=None, )
+    type = models.ForeignKey(BladesType, on_delete=models.CASCADE, default=None, )
+    handle_type = models.ForeignKey(BladesHandleType, on_delete=models.CASCADE, default=None, )
+    composition = models.ForeignKey(BladesComposition, on_delete=models.CASCADE, default=None, )
+    size = models.ForeignKey(BladesSize, on_delete=models.CASCADE, default=None, )
 
     def __str__(self):
         return f'{self.product} {self.brand} {self.type} {self.handle_type} {self.composition} {self.size}'
@@ -235,16 +130,8 @@ class ValueBladesAttribute(models.Model):
 
 
 class RubbersProductAttribute(models.Model):
-    category = models.ForeignKey(
-        CategoryProduct,
-        verbose_name='Category',
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=100,
-        db_index=True,
-    )
+    category = models.ForeignKey(CategoryProduct, verbose_name='Category', on_delete=models.CASCADE, )
+    name = models.CharField(verbose_name='Name', max_length=100, db_index=True, )
 
     def __str__(self):
         return self.name
@@ -283,26 +170,10 @@ class RubbersSpeedType(models.Model):
 
 
 class ValueRubbersAttribute(models.Model):
-    product = models.ForeignKey(
-        Product,
-        on_delete=models.CASCADE,
-        related_name='rubber_attribute',
-    )
-    brand = models.ForeignKey(
-        RubbersBrand,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    type = models.ForeignKey(
-        RubbersType,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    speed_type = models.ForeignKey(
-        RubbersSpeedType,
-        on_delete=models.CASCADE,
-        default=None,
-    )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='rubber_attribute', )
+    brand = models.ForeignKey(RubbersBrand, on_delete=models.CASCADE, default=None, )
+    type = models.ForeignKey(RubbersType, on_delete=models.CASCADE, default=None, )
+    speed_type = models.ForeignKey(RubbersSpeedType, on_delete=models.CASCADE, default=None, )
 
     def __str__(self):
         return f'{self.product} {self.brand} {self.type} {self.speed_type}'
@@ -314,16 +185,8 @@ class ValueRubbersAttribute(models.Model):
 
 
 class BallsProductAttribute(models.Model):
-    category = models.ForeignKey(
-        CategoryProduct,
-        verbose_name='Category',
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=100,
-        db_index=True,
-    )
+    category = models.ForeignKey(CategoryProduct, verbose_name='Category', on_delete=models.CASCADE, )
+    name = models.CharField(verbose_name='Name', max_length=100, db_index=True, )
 
     def __str__(self):
         return self.name
@@ -362,26 +225,10 @@ class BallsPackage(models.Model):
 
 
 class ValueBallsAttribute(models.Model):
-    product = models.ForeignKey(
-        Product,
-        on_delete=models.CASCADE,
-        related_name='ball_attribute',
-    )
-    brand = models.ForeignKey(
-        BallsBrand,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    rank = models.ForeignKey(
-        BallsRank,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    package = models.ForeignKey(
-        BallsPackage,
-        on_delete=models.CASCADE,
-        default=None,
-    )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='ball_attribute', )
+    brand = models.ForeignKey(BallsBrand, on_delete=models.CASCADE, default=None, )
+    rank = models.ForeignKey(BallsRank, on_delete=models.CASCADE, default=None, )
+    package = models.ForeignKey(BallsPackage, on_delete=models.CASCADE, default=None, )
 
     def __str__(self):
         return f'{self.product} {self.brand} {self.rank} {self.package}'
@@ -393,16 +240,8 @@ class ValueBallsAttribute(models.Model):
 
 
 class BackpacksBagsProductAttribute(models.Model):
-    category = models.ForeignKey(
-        CategoryProduct,
-        verbose_name='Category',
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=100,
-        db_index=True,
-    )
+    category = models.ForeignKey(CategoryProduct, verbose_name='Category', on_delete=models.CASCADE, )
+    name = models.CharField(verbose_name='Name', max_length=100, db_index=True, )
 
     def __str__(self):
         return self.name
@@ -441,26 +280,10 @@ class BackpacksBagsColor(models.Model):
 
 
 class ValueBackpacksBagsAttribute(models.Model):
-    product = models.ForeignKey(
-        Product,
-        on_delete=models.CASCADE,
-        related_name='bag_attribute',
-    )
-    brand = models.ForeignKey(
-        BackpacksBagsBrand,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    type = models.ForeignKey(
-        BackpacksBagsType,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    color = models.ForeignKey(
-        BackpacksBagsColor,
-        on_delete=models.CASCADE,
-        default=None,
-    )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='bag_attribute', )
+    brand = models.ForeignKey(BackpacksBagsBrand, on_delete=models.CASCADE, default=None, )
+    type = models.ForeignKey(BackpacksBagsType, on_delete=models.CASCADE, default=None, )
+    color = models.ForeignKey(BackpacksBagsColor, on_delete=models.CASCADE, default=None, )
 
     def __str__(self):
         return f'{self.product} {self.brand} {self.type} {self.color}'
@@ -472,16 +295,8 @@ class ValueBackpacksBagsAttribute(models.Model):
 
 
 class NetsProductAttribute(models.Model):
-    category = models.ForeignKey(
-        CategoryProduct,
-        verbose_name='Category',
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=100,
-        db_index=True,
-    )
+    category = models.ForeignKey(CategoryProduct, verbose_name='Category', on_delete=models.CASCADE, )
+    name = models.CharField(verbose_name='Name', max_length=100, db_index=True, )
 
     def __str__(self):
         return self.name
@@ -510,21 +325,9 @@ class NetsColor(models.Model):
 
 
 class ValueNetsAttribute(models.Model):
-    product = models.ForeignKey(
-        Product,
-        on_delete=models.CASCADE,
-        related_name='net_attribute',
-    )
-    brand = models.ForeignKey(
-        NetsBrand,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    color = models.ForeignKey(
-        NetsColor,
-        on_delete=models.CASCADE,
-        default=None,
-    )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='net_attribute', )
+    brand = models.ForeignKey(NetsBrand, on_delete=models.CASCADE, default=None, )
+    color = models.ForeignKey(NetsColor, on_delete=models.CASCADE, default=None, )
 
     def __str__(self):
         return f'{self.product} {self.brand} {self.color}'
@@ -536,16 +339,8 @@ class ValueNetsAttribute(models.Model):
 
 
 class TablesProductAttribute(models.Model):
-    category = models.ForeignKey(
-        CategoryProduct,
-        verbose_name='Category',
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=100,
-        db_index=True,
-    )
+    category = models.ForeignKey(CategoryProduct, verbose_name='Category', on_delete=models.CASCADE, )
+    name = models.CharField(verbose_name='Name', max_length=100, db_index=True, )
 
     def __str__(self):
         return self.name
@@ -588,31 +383,11 @@ class TablesThickness(models.Model):
 
 
 class ValueTablesAttribute(models.Model):
-    product = models.ForeignKey(
-        Product,
-        on_delete=models.CASCADE,
-        related_name='table_attribute',
-    )
-    brand = models.ForeignKey(
-        TablesBrand,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    section = models.ForeignKey(
-        TablesSection,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    color = models.ForeignKey(
-        TablesColor,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    thickness = models.ForeignKey(
-        TablesThickness,
-        on_delete=models.CASCADE,
-        default=None,
-    )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='table_attribute', )
+    brand = models.ForeignKey(TablesBrand, on_delete=models.CASCADE, default=None, )
+    section = models.ForeignKey(TablesSection, on_delete=models.CASCADE, default=None, )
+    color = models.ForeignKey(TablesColor, on_delete=models.CASCADE, default=None, )
+    thickness = models.ForeignKey(TablesThickness, on_delete=models.CASCADE, default=None, )
 
     def __str__(self):
         return f'{self.product} {self.brand} {self.section} {self.color} {self.thickness}'
@@ -624,16 +399,8 @@ class ValueTablesAttribute(models.Model):
 
 
 class RacketsProductAttribute(models.Model):
-    category = models.ForeignKey(
-        CategoryProduct,
-        verbose_name='Category',
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=100,
-        db_index=True,
-    )
+    category = models.ForeignKey(CategoryProduct, verbose_name='Category', on_delete=models.CASCADE, )
+    name = models.CharField(verbose_name='Name', max_length=100, db_index=True, )
 
     def __str__(self):
         return self.name
@@ -683,39 +450,15 @@ class RacketsRubbersThickness(models.Model):
 
 
 class ValueRacketsAttribute(models.Model):
-    product = models.ForeignKey(
-        Product,
-        on_delete=models.CASCADE,
-        related_name='racket_attribute',
-    )
-    brand = models.ForeignKey(
-        RacketsBrand,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    type = models.ForeignKey(
-        RacketsType,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    handle_type = models.ForeignKey(
-        RacketsHandleType,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    average_weight = models.ForeignKey(
-        RacketsAverageWeight,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    rubbers_thickness = models.ForeignKey(
-        RacketsRubbersThickness,
-        on_delete=models.CASCADE,
-        default=None,
-    )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='racket_attribute', )
+    brand = models.ForeignKey(RacketsBrand, on_delete=models.CASCADE, default=None, )
+    type = models.ForeignKey(RacketsType, on_delete=models.CASCADE, default=None, )
+    handle_type = models.ForeignKey(RacketsHandleType, on_delete=models.CASCADE, default=None, )
+    average_weight = models.ForeignKey(RacketsAverageWeight, on_delete=models.CASCADE, default=None, )
+    rubbers_thickness = models.ForeignKey(RacketsRubbersThickness, on_delete=models.CASCADE, default=None, )
 
     def __str__(self):
-        return f'{self.product} {self.brand} {self.type} {self.handle_type} {self.average_weight} {self.rubbers_thickness}'
+        return f'{self.product} {self.brand} {self.type} {self.handle_type} {self.average_weight}'
 
     class Meta:
         ordering = ['id']
@@ -724,16 +467,8 @@ class ValueRacketsAttribute(models.Model):
 
 
 class AccessoriesProductAttribute(models.Model):
-    category = models.ForeignKey(
-        CategoryProduct,
-        verbose_name='Category',
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=100,
-        db_index=True,
-    )
+    category = models.ForeignKey(CategoryProduct, verbose_name='Category', on_delete=models.CASCADE, )
+    name = models.CharField(verbose_name='Name', max_length=100, db_index=True, )
 
     def __str__(self):
         return self.name
@@ -772,26 +507,10 @@ class AccessoriesColor(models.Model):
 
 
 class ValueAccessoriesAttribute(models.Model):
-    product = models.ForeignKey(
-        Product,
-        on_delete=models.CASCADE,
-        related_name='accessory_attribute',
-    )
-    brand = models.ForeignKey(
-        AccessoriesBrand,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    type = models.ForeignKey(
-        AccessoriesType,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    color = models.ForeignKey(
-        AccessoriesColor,
-        on_delete=models.CASCADE,
-        default=None,
-    )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='accessory_attribute', )
+    brand = models.ForeignKey(AccessoriesBrand, on_delete=models.CASCADE, default=None, )
+    type = models.ForeignKey(AccessoriesType, on_delete=models.CASCADE, default=None, )
+    color = models.ForeignKey(AccessoriesColor, on_delete=models.CASCADE, default=None, )
 
     def __str__(self):
         return f'{self.product} {self.brand} {self.type} {self.color}'
@@ -803,26 +522,10 @@ class ValueAccessoriesAttribute(models.Model):
 
 
 class Images(models.Model):
-    category = models.ForeignKey(
-        CategoryProduct,
-        on_delete=models.CASCADE,
-        default=None,
-
-    )
-    product = models.ForeignKey(
-        Product,
-        related_name='images_product',
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        max_length=200,
-        blank=True,
-        verbose_name='Name',
-    )
-    image = models.ImageField(
-        blank=True,
-        upload_to=get_upload_path,
-    )
+    category = models.ForeignKey(CategoryProduct, on_delete=models.CASCADE, default=None, )
+    product = models.ForeignKey(Product, related_name='images_product', on_delete=models.CASCADE, )
+    name = models.CharField(max_length=200, blank=True, verbose_name='Name', )
+    image = models.ImageField(blank=True, upload_to=get_upload_path, )
 
     def __str__(self):
         return self.name
@@ -845,20 +548,9 @@ class RatingStarProduct(models.Model):
 
 
 class RatingProduct(models.Model):
-    ip = models.CharField(
-        verbose_name='Ip',
-        max_length=20,
-    )
-    star = models.ForeignKey(
-        RatingStarProduct,
-        on_delete=models.CASCADE,
-        verbose_name='Star',
-    )
-    product = models.ForeignKey(
-        Product,
-        on_delete=models.CASCADE,
-        verbose_name='Product',
-    )
+    ip = models.CharField(verbose_name='Ip', max_length=20, )
+    star = models.ForeignKey(RatingStarProduct, on_delete=models.CASCADE, verbose_name='Star', )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Product', )
 
     def __str__(self):
         return f'{self.star} - {self.product}'
@@ -874,37 +566,14 @@ class ReviewsProduct(models.Model):
         ('True', 'True'),
         ('False', 'False'),
     )
-    product = models.ForeignKey(
-        Product,
-        verbose_name='Product',
-        on_delete=models.CASCADE,
-        related_name='reviews_product',
-    )
-    user = models.ForeignKey(
-        CustomUser,
-        on_delete=models.CASCADE,
-        default=None,
-    )
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=150,
-    )
-    text = models.TextField(
-        verbose_name='Message',
-        max_length=4000,
-    )
-    ip = models.CharField(
-        max_length=25,
-        blank=True,
-    )
-    status = models.CharField(
-        max_length=8,
-        choices=STATUS,
-        default='New',
-    )
-    create_at = models.DateTimeField(
-        auto_now_add=True,
-    )
+    product = models.ForeignKey(Product, verbose_name='Product', on_delete=models.CASCADE,
+                                related_name='reviews_product', )
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=None, )
+    name = models.CharField(verbose_name='Name', max_length=150, )
+    text = models.TextField(verbose_name='Message', max_length=4000, )
+    ip = models.CharField(max_length=25, blank=True, )
+    status = models.CharField(max_length=8, choices=STATUS, default='New', )
+    create_at = models.DateTimeField(auto_now_add=True, )
     update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):

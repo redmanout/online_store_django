@@ -116,9 +116,8 @@
                                             <a href="" class="product-card__compare _icon-scales"></a>
                                             <a href="" class="product-card__heart _icon-heart"></a>
                                         </div>
-                                        <button type="button" class="product-card__cart button"><span
-                                                class="_icon-cart">В
-												корзину</span></button>
+                                        <a href="{% url 'add_to_cart' product.id %}" type="button" class="product-card__cart button"><span
+                                                    class="_icon-cart">Add to cart</span></a>
                                     </div>
                                 </article>
                             {% endfor %}

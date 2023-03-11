@@ -40,7 +40,6 @@ class ImagesAdmin(admin.ModelAdmin):
 class ReviewProductInline(admin.TabularInline):
     model = ReviewsProduct
     extra = 1
-    readonly_fields = ('name', 'product', 'user', 'text', 'ip',)
 
 
 @admin.register(Product)

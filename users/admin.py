@@ -9,10 +9,12 @@ class CustomUserAdmin(UserAdmin):
     add_form = UserRegForm
     form = EditProfileForm
     model = CustomUser
-    list_display = ('email', 'first_name', 'last_name', 'is_staff', 'is_active',)
+    list_display = (
+        'email', 'first_name', 'last_name', 'phone', 'address', 'city', 'country', 'is_staff', 'is_active',
+        'image_tag',)
     list_filter = ('email', 'first_name', 'last_name', 'is_staff', 'is_active',)
     fieldsets = (
-        (None, {'fields': ('email', 'first_name', 'last_name', 'avatar')}),
+        (None, {'fields': ('email', 'first_name', 'last_name', 'phone', 'address', 'city', 'country', 'avatar')}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
     )
     add_fieldsets = (
